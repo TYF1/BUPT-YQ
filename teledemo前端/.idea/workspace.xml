@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="504004b5-7a7f-41f8-a033-70ed4632aa35" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="eqe: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2DgyFQsae2GPkGPGYkXEVtmAhLT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/感染轨迹" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@12f6072c" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="504004b5-7a7f-41f8-a033-70ed4632aa35" name="Default Changelist" comment="" />
+      <created>1661134917802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661134917802</updated>
+      <workItem from="1661134919334" duration="32251000" />
+      <workItem from="1661300879150" duration="5900000" />
+      <workItem from="1661309287932" duration="5328000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="97" key="#Project_Structure" timestamp="1661145614374">
+      <screen x="0" y="25" width="1440" height="819" />
+    </state>
+    <state x="320" y="97" key="#Project_Structure/0.25.1440.819@0.25.1440.819" timestamp="1661145614374" />
+    <state x="109" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1661230928935">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state x="109" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.826@0.25.1440.826" timestamp="1661230928935" />
+    <state x="181" y="97" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.827@0.25.1440.827" timestamp="1661222713084" />
+    <state width="958" height="202" key="GridCell.Tab.0.bottom" timestamp="1661231561833">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state width="958" height="202" key="GridCell.Tab.0.bottom/0.25.1440.826@0.25.1440.826" timestamp="1661231561833" />
+    <state width="958" height="202" key="GridCell.Tab.0.center" timestamp="1661231561832">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state width="958" height="202" key="GridCell.Tab.0.center/0.25.1440.826@0.25.1440.826" timestamp="1661231561832" />
+    <state width="958" height="202" key="GridCell.Tab.0.left" timestamp="1661231561831">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state width="958" height="202" key="GridCell.Tab.0.left/0.25.1440.826@0.25.1440.826" timestamp="1661231561831" />
+    <state width="958" height="202" key="GridCell.Tab.0.right" timestamp="1661231561832">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state width="958" height="202" key="GridCell.Tab.0.right/0.25.1440.826@0.25.1440.826" timestamp="1661231561832" />
+    <state x="137" y="70" key="SettingsEditor" timestamp="1661220632308">
+      <screen x="0" y="25" width="1440" height="827" />
+    </state>
+    <state x="137" y="70" key="SettingsEditor/0.25.1440.827@0.25.1440.827" timestamp="1661220632308" />
+    <state x="586" y="201" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1661231628414">
+      <screen x="0" y="25" width="1440" height="826" />
+    </state>
+    <state x="586" y="201" key="com.intellij.database.view.ui.DbObjectDialog/0.25.1440.826@0.25.1440.826" timestamp="1661231628414" />
+    <state x="397" y="267" key="com.intellij.ide.util.TipDialog" timestamp="1661300881727">
+      <screen x="0" y="25" width="1440" height="823" />
+    </state>
+    <state x="397" y="267" key="com.intellij.ide.util.TipDialog/0.25.1440.823@0.25.1440.823" timestamp="1661300881727" />
+  </component>
+</project>
