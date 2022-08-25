@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&plugin=AMap.PolyEditor"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+    <title>地图显示</title>
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div class="input-card" style="width: 120px">
+    <button class="btn" onclick="editClick()" style="margin-bottom: 5px">开始编辑</button>
+    <button class="btn" onclick="endEdit()">结束编辑</button>
+</div>
+
+<div class="info" id="text">
+    请点击标签试试
+</div>
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom:11, //初始化地图层级
+        center: [116.397428, 39.90923] //初始化地图中心点
+    });
+    map.on("complete", function(){
+        log.success("地图加载完成！");
+        $.get("http://localhost:10003/v1/area",function(obj){
+            var markers = []
+            var data = obj
+            for(var i=0; i<data["data"].length; i++) {
+                var marker = new AMap.Marker({
+                    position: new AMap.LngLat(data["data"][i]["lon"],data["data"][i]["lat"]),
+                    icon: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+                    offset: new AMap.Pixel(-13, -30)
+                });
+                marker.content  = '确诊人数' + data["data"][i]["infected_count"] + '\t' + '密接人数' + data["data"][i]["closed_count"];
+                marker.on('click', markerClick);
+                map.add(marker);
+                markers.push(marker);
+            }
+        });
+
+        $.get("http://localhost:10003/v1/poly",function (obj){
+            const polygons = [];
+            const data = obj;
+            for(let i=0; i<data["data"].length; i++){
+                const path = [];
+                for(let j=0; j<data["data"][i]["list_data"].length; j++){
+                    path.push([data["data"][i]["list_data"][j]["value"],data["data"][i]["list_data"][j]["key"]])
+                }
+
+                const polygon = new AMap.Polygon({
+                    path: path,
+                    strokeColor: "#FF33FF",
+                    strokeWeight: 6,
+                    strokeOpacity: 0.2,
+                    fillOpacity: 0.4,
+                    fillColor: '#1791fc',
+                    zIndex: 50,
+                });
+                polygon.content = {"id":data["data"][i]["id"], "status":data["data"][i]["status"]}
+
+                polygon.on('click', polygonClick)
+
+                map.add(polygon)
+                polygons.push(polygon)
+            }
+        });
+    });
+
+    var polyEditor
+    var poly_select
+    var current_poly
+
+
+
+    // 缩放地图到合适的视野级别
+    // map.setFitView([ polygon ])
+    const infoWindow = new AMap.InfoWindow({offset: new AMap.Pixel(0, -30)});
+
+
+    function markerClick(e) {
+        map.setFitView([ e.target ])
+        infoWindow.setContent(e.target.content);
+        infoWindow.open(map, e.target.getPosition());
+
+    }
+
+    function polygonClick(e) {
+        map.setFitView([ e.target ])
+        poly_select = e.target
+
+
+    }
+    function editClick(){
+        if(typeof(polyEditor)!="undefined"){
+            polyEditor.close();
+        }
+        current_poly = poly_select
+        polyEditor = new AMap.PolyEditor(map, poly_select);
+        polyEditor.on('addnode', function(event) {
+            log.info('触发事件：addnode')
+        })
+
+        polyEditor.on('adjust', function(event) {
+            log.info('触发事件：adjust')
+        })
+
+        polyEditor.on('removenode', function(event) {
+            log.info('触发事件：removenode')
+        })
+
+        polyEditor.on('end', function(event) {
+            log.info('触发事件： end');
+            // event.target 即为编辑后的多边形对象
+        })
+        polyEditor.open();
+    }
+
+    function endEdit(){
+        var send = poly_select.content
+        var list = current_poly.getPath()
+        send["list_data"] = []
+        for(let i=0; i<list.length;i++){
+            send["list_data"].push([list[i]["lat"],list[i]["lng"]])
+        }
+        console.log(current_poly.getPath())
+        console.log(send)
+        $.ajax({
+            type: "post",
+            url: "http://localhost:10003/v1/polyy",
+            contentType : 'application/json',  //如果传的是json必须加上当前定义，否则页面报415错误
+            data: JSON.stringify(send), //这里需要将参数，序列化成为json数据,js中并没有List数据类型
+            success: function(data) {
+                console.log("aaaaaaaaaa")
+            }
+        });
+
+        polyEditor.close()
+    }
+
+
+
+</script>
+</body>
+</html>
