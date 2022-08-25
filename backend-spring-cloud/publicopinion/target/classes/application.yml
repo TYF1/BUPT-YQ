@@ -1,0 +1,44 @@
+server:
+  port: 10003
+
+spring:
+  application:
+    name: publicopinion
+
+  datasource:
+#    driver-class-name: 'com:mysql:cj:jdbc:Driver'
+    url: 'jdbc:mysql://localhost:3306/weibo'
+    username: root
+    password: 123456
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: 'true'
+      hibernate:
+        ddl-auto: update
+      show-sql: 'true'
+
+
+
+#  ## Jpa Properties
+#  #spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+#  spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+#  spring.jpa.hibernate.ddl-auto=create-drop
+#  #spring.jpa.hibernate.ddl-auto=update
+#  spring.jpa.show-sql=true
+#  spring.jpa.properties.hibernate.format_sql=true
+
+#eureka:
+#  client:
+#    #表示是否将自己注册进eurekaServer
+#    register-with-eureka: true
+#    #是否从eurekaServer提取已有的注册信息，默认为true,单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:10001/eureka/
+#  #      http://eureka7002.com:7002/eureka/
+#  #      defaultZone: http://localhost:7001/eureka
+#  #  http://114.116.249.36:7001/eureka/
+#  instance:
+#    prefer-ip-address: true
