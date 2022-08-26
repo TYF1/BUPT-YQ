@@ -1,3 +1,11 @@
+/**
+ * @Project Name:MSHD
+ * @File Name: hsInfoController.java
+ * @Description: 热搜信息页面Controller
+ * @HISTORY：
+ *    Created   2022.8.24  魏瑾
+ */
+
 package teleDemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;

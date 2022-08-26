@@ -1,3 +1,11 @@
+/**
+ * @Project Name:MSHD
+ * @File Name: hsInfoMapper.java
+ * @Description: Mapper类
+ * @HISTORY：
+ *    Created   2022.8.24  魏瑾
+ */
+
 package teleDemo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
