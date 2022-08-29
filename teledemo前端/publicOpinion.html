@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/xadmin.css">
     <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 
@@ -32,11 +33,43 @@
     <div style="text-align: center; font-size: 20px;">
         热搜Top100词 词云图
     </div>
+    <p style="text-align: center">
+        <img src="images/emotionalAnalysis.png" style="width: 60%;height: auto"/>
+    </p>
+    <div style="text-align: center; font-size: 20px;">
+        微博爬虫结果情感分析图
+    </div>
+    <button type="button" class="layui-btn" onclick="updateHS()">更新热搜数据库</button>
     <table id="disasterPredictionTb" lay-filter="disasterPredictionTb"></table>
     <div class="layui-card-header">
         <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
         <!-- <button class="layui-btn" onclick="xadmin.open('添加预测数据','./disasterPredictionInfo-add.html',1200,600)"><i class="layui-icon"></i>添加</button> -->
     </div>
+
+    <script type="text/javascript">
+        function updateHS(){
+            // document.location.href = "http://127.0.0.1:10006/v1/hsUpdate"
+            $.ajax({
+                url: 'http://127.0.0.1:10006/v1/hsUpdate',
+                type: 'GET',     // 请求类型，常用的有 GET 和 POST
+                dataType: 'text',
+                timeout: 100000,
+                data: {
+                    // 请求参数
+                },
+                error : function() {
+                    alert('更新失败 ');
+                },
+                success: function(data) { // 接口调用成功回调函数
+                    if (data == "failed") {
+                        alert("更新失败");
+                    }else {
+                        alert("已更新" + data + "条数据，请刷新查看");
+                    }
+                }
+            });
+        }
+    </script>
 
     <script type="text/html" id="barDemo">
         <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->

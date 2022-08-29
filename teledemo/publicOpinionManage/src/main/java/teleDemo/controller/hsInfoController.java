@@ -9,10 +9,8 @@
 
 package teleDemo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.*;
 import teleDemo.entities.GetVo;
 import teleDemo.entities.tbHotSearch;
 
@@ -37,6 +35,7 @@ public class hsInfoController {
 
     @RequestMapping("/v1/hsUpdate")
     public String updateHsDB(HttpServletRequest request) {
+        JSONObject result = new JSONObject();
         Process proc;
         List<String> lineList = new ArrayList<>();
         List<String> errorList = new ArrayList<>();
@@ -53,11 +52,10 @@ public class hsInfoController {
 
             String err = null;
             while ((err = error.readLine()) != null) {
-//                System.out.println("=====error：" + err);
                 errorList.add(err);
             }
             if (errorList.size() != 0) {
-                return errorList.toString();
+                return "failed";
             }
 
             in.close();
@@ -65,8 +63,7 @@ public class hsInfoController {
             proc.waitFor();
         } catch (Exception e) {
             e.printStackTrace();
-            return e.toString();
         }
-        return "数据库更新成功，已更新" + lineList.size() + "条数据";
+        return String.valueOf(lineList.size());
     }
 }
