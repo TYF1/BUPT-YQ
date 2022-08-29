@@ -2,7 +2,7 @@
 
 ### 舆情管理模块
 
-python脚本文件夹：Scrapy脚本
+python脚本文件夹：ScrapyScripts
 
 + 脚本中包含：爬虫脚本、wordcloud生成脚本、微博爬虫结果情感分析脚本
 
