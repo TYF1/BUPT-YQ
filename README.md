@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BUPT-YQ
 
 ### 舆情管理模块
@@ -11,3 +12,6 @@ python脚本文件夹：ScrapyScripts
 Sql文件夹：数据库sql
 
 
+=======
+# BUPT-YQ
+>>>>>>> c24fc7475452dd9477420decef3b3d181c3dc7b1

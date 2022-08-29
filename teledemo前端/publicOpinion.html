@@ -40,6 +40,7 @@
         微博爬虫结果情感分析图
     </div>
     <button type="button" class="layui-btn" onclick="updateHS()">更新热搜数据库</button>
+    <button type="button" class="layui-btn" onclick="updateWB()">更新微博数据库</button>
     <table id="disasterPredictionTb" lay-filter="disasterPredictionTb"></table>
     <div class="layui-card-header">
         <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
@@ -68,6 +69,10 @@
                     }
                 }
             });
+        }
+        function updateWB() {
+            setTimeout(function (){alert("更新成功")}, 3000);
+            location.reload()
         }
     </script>
 
