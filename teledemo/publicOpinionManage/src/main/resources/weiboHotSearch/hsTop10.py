@@ -6,6 +6,8 @@ from dao.weiboDao import WeiboDao
 from lxml import etree
 import html
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 '''
 hsDict = {
     'hsContent' = '#xxxxxx#',
