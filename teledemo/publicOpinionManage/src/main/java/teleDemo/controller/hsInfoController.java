@@ -5,6 +5,7 @@
  * @HISTORY：
  *    Created   2022.8.24  魏瑾
  *    Modified  2022.8.29  魏瑾
+ *    Modified  2022.8.31  魏瑾
  */
 
 package teleDemo.controller;
@@ -42,6 +43,7 @@ public class hsInfoController {
 
         try {
             proc = Runtime.getRuntime().exec("python teledemo/publicOpinionManage/src/main/resources/weiboHotSearch/hsTop10.py");
+//            proc = Runtime.getRuntime().exec("python /home/fanxyd/eqe/jarPackage/teledemo/resources/weiboHotSearch/hsTop10.py");
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             BufferedReader error = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
             String line = null;

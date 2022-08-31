@@ -53,7 +53,7 @@
         function updateHS(){
             // document.location.href = "http://127.0.0.1:10006/v1/hsUpdate"
             $.ajax({
-                url: 'http://127.0.0.1:10006/v1/hsUpdate',
+                url: 'http://114.115.254.186:10006/v1/hsUpdate',
                 type: 'GET',     // 请求类型，常用的有 GET 和 POST
                 dataType: 'text',
                 timeout: 100000,
@@ -78,7 +78,7 @@
         }
 
         var weiboKeyWord = "疫情"
-        var weiboBaseUrl = 'http://10.28.229.81:10006/v1/weiboInfo'
+        var weiboBaseUrl = 'http://114.115.254.186:10006/v1/weiboInfo'
     </script>
 
     <script type="text/html" id="barDemo">
@@ -98,7 +98,7 @@
             //第一个实例
             table.render({
                 elem: '#disasterPredictionTb',
-                url: 'http://10.28.229.81:10006/v1/hsInfo',
+                url: 'http://114.115.254.186:10006/v1/hsInfo',
                 page: false,
                 toolbar: '#toolbarDemo',
                 title: '热搜Top10',
@@ -135,7 +135,7 @@
             weiboTable = table.render({
                 elem: '#weiboTb',
                 id: 'weiboTb',
-                url: 'http://10.28.229.81:10006/v1/weiboInfo',
+                url: 'http://114.115.254.186:10006/v1/weiboInfo',
                 page: false,
                 where :{
                     keyWord: weiboKeyWord
@@ -177,7 +177,7 @@
 
                     //执行重载
                     table.reload('weiboTb', {	//testReload为table中的id
-                            url: 'http://10.28.229.81:10006/v1/weiboSearch',
+                            url: 'http://114.115.254.186:10006/v1/weiboSearch',
                             where: {
                                 keyWord:keyWord.val(),
                             }

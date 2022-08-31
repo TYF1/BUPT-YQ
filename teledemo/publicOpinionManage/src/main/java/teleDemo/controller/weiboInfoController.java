@@ -1,3 +1,12 @@
+/**
+ * @Project Name:MSHD
+ * @File Name: hsInfoController.java
+ * @Description: 热搜信息页面Controller
+ * @HISTORY：
+ *    Created   2022.8.29  魏瑾
+ *    Modified  2022.8.31  魏瑾
+ */
+
 package teleDemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -38,6 +46,7 @@ public class weiboInfoController {
         List<String> errorList = new ArrayList<>();
         try {
             Process p = Runtime.getRuntime().exec("python teledemo/publicOpinionManage/src/main/resources/weiboSpider/startspider.py " + keyWord);
+//            Process p = Runtime.getRuntime().exec("python /home/fanxyd/eqe/jarPackage/teledemo/resources/weiboSpider/startspider.py " + keyWord);
             final InputStream is1 = p.getInputStream();
             Thread thread = new Thread(() -> {
                 BufferedReader br = new BufferedReader(new InputStreamReader(is1));
