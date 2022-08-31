@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MYBUPT-YQ.iml" filepath="$PROJECT_DIR$/.idea/MYBUPT-YQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teledemo/eurekaserver/eurekaserver.iml" filepath="$PROJECT_DIR$/teledemo/eurekaserver/eurekaserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teledemo/peoplemanage/peoplemanage.iml" filepath="$PROJECT_DIR$/teledemo/peoplemanage/peoplemanage.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ceba2b2a-6aeb-4324-9a17-4f241c39eb69" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/teledemo" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -7,13 +20,79 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectId" id="2DpUpGTFbtCOBPWEuBOJZZ9ehdX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
+  <component name="RunManager" selected="Spring Boot.peopleManage10002">
+    <configuration name="Eureka10001" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eurekaserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="teleDemo.Eureka10001" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="peopleManage10002" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="peoplemanage" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="teleDemo.peopleManage10002" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ceba2b2a-6aeb-4324-9a17-4f241c39eb69" name="Default Changelist" comment="" />
+      <created>1661395700798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661395700798</updated>
+      <workItem from="1661395704934" duration="1854000" />
+      <workItem from="1661732810446" duration="235000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1661732884023">
+      <screen x="0" y="25" width="1440" height="819" />
+    </state>
+    <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.819@0.25.1440.819" timestamp="1661732884023" />
+    <state x="570" y="327" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1661732869189">
+      <screen x="0" y="25" width="1440" height="819" />
+    </state>
+    <state x="570" y="327" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.25.1440.819@0.25.1440.819" timestamp="1661732869189" />
+    <state x="320" y="171" key="Vcs.Push.Dialog.v2" timestamp="1661397269160">
+      <screen x="0" y="25" width="1440" height="823" />
+    </state>
+    <state x="320" y="171" key="Vcs.Push.Dialog.v2/0.25.1440.823@0.25.1440.823" timestamp="1661397269160" />
+    <state x="397" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1661734005409">
+      <screen x="0" y="25" width="1440" height="819" />
+    </state>
+    <state x="397" y="263" key="com.intellij.ide.util.TipDialog/0.25.1440.819@0.25.1440.819" timestamp="1661734005409" />
   </component>
 </project>

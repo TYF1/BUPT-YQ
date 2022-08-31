@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>管理确诊患者信息</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="./css/patientInfo-style.css">
+
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <!--    vue-resource 包导入-->
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.js"></script>
+
+  <!--    bootstrap  -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #5FB878;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+
+  .searchTerm:focus{
+    color: #5FB878;
+  }
+
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #5FB878;
+    background: #5FB878;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  /*Resize the wrap to see the search bar change!*/
+  .wrap{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+
+  /*按钮class*/
+  .custom-btn {
+    margin: 5px;
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    border-radius: 5px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+
+  /* 11 */
+  .btn-11 {
+    border: none;
+    background-color: #5FB878;
+    background-image: linear-gradient(315deg, #5FB878 0%, #96e4df 74%);
+    color: #fff;
+    overflow: hidden;
+  }
+  .btn-11:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  .btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+  }
+  .btn-11:hover{
+    opacity: .7;
+  }
+  .btn-11:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  }
+
+
+  @-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+  }
+
+/*  弹窗样式*/
+  .mask{
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .box{
+    overflow-y: scroll;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 60%;
+  }
+
+/*  高亮样式*/
+  .highlight {
+    color: #bd2c00;
+    font-family:STFangsong;
+    font-size: 30px;
+  }
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<section class="vue">
+<!--  弹窗-->
+  <div class="mask" v-show="mask" @click="close()">
+    <div class="box" @click.stop="">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="user_id" class="col-sm-2 control-label">姓名</label>
+          <div class="col-sm-10">
+            <input v-model="userId" readonly="readonly" type="text" class="form-control" id="user_id"
+                   placeholder="请输入名字">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="date_time" class="col-sm-2 control-label">日期</label>
+          <div class="col-sm-10">
+            <input v-model="dateTime" readonly="readonly" type="text" class="form-control" id="date_time"
+                   placeholder="请输入日期">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lac" class="col-sm-2 control-label">途经地点码区</label>
+          <div class="col-sm-10">
+            <input v-model="lac" readonly="readonly" type="text" class="form-control" id="lac"
+                   placeholder="请输入途经地点">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lat" class="col-sm-2 control-label">经度</label>
+          <div class="col-sm-10">
+            <input v-model="lon" readonly="readonly" type="text" class="form-control" id="lat"
+                   placeholder="纬度">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lon" class="col-sm-2 control-label">纬度</label>
+          <div class="col-sm-10">
+            <input v-model="lat" readonly="readonly" type="text" class="form-control" id="lon"
+                   placeholder="经度">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="status" class="col-sm-2 control-label">状态</label>
+          <div class="col-sm-10">
+            <input v-model="status" type="text" class="form-control" id="status"
+                   placeholder="状态">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" @click="submit()" class="btn btn-default">提交</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!--for demo wrap-->
+  <h1>管理确诊患者信息</h1>
+  <button  @click="add()" class="custom-btn btn-11">增加</button>
+  <br/>
+    <div class="wrap">
+      <div class="search">
+        <input v-model="search" type="text" class="searchTerm" placeholder="请输入您想要查找的用户id。">
+        <button type="submit"  class="searchButton">
+          🔍
+        </button>
+      </div>
+    </div>
+  <br/>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>日期</th>
+          <th>途经地点</th>
+          <th>经度</th>
+          <th>纬度</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr v-for="patient in filterpatients">
+          <td v-html="highlight(patient.userId)"></td>
+          <td>{{patient.dateTime}}</td>
+          <td>{{patient.lac}}</td>
+          <td>{{patient.lon|snippet}}</td>
+          <td>{{patient.lat|snippet}}</td>
+          <td>{{patient.status}}</td>
+
+          <td><button v-on:click="update(patient)" class="custom-btn btn-11">修改</button><button onclick="" class="custom-btn btn-11">删除</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./js/patientInfo-script.js"></script>
+<!-- Vue -->
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '.vue',
+      data: {
+        patients:[],
+        search:"",
+        mask:false,
+        userId:"",
+        lac:"",
+        lon:"",
+        lat:"",
+        dateTime:"",
+        status:""
+      },
+      created(){
+        for (var i=1;i<15;i++)
+        {
+          this.$http.get("http://localhost:10002/v1/get_user_by_id?user_id="+i).then(function (data) {
+            this.patients = this.patients.concat(data.body.data);
+          })
+        }
+      },
+      methods: {
+        highlight(value){
+          val=value.toString().replace(this.search,"<span class=highlight>"+this.search+"</span>")
+          return val;
+        },
+        close(){
+          //false弹窗隐藏
+          this.mask=false;
+          console.log(this.mask)
+        },
+        open(patient){
+          //true弹窗开启
+          this.mask=true;
+          this.userId=patient.userId
+          this.lac=patient.lac
+          this.lon=patient.lon
+          this.lat=patient.lat
+          this.dateTime=patient.dateTime
+          this.status=patient.status
+          console.log(this.mask)
+        },
+        add(){
+          this.open()
+          console.log(this.mask)
+        },
+        update(patient){
+          this.open(patient)
+        },
+        submit(){
+            //目前
+          this.$http.post("http://localhost:10002/v1/update_user_status?user_id="+this.userId+"&status="+this.status).then(function (data) {
+            console.log(data)
+          })
+        }
+      },
+      computed:{
+        filterpatients:function(){
+          return this.patients.filter((patient)=>{
+            return patient.userId.toString().match(this.search);
+          }).sort((a,b)=>{
+            return a.userId - b.userId;
+          })
+        }
+      }
+    })
+    Vue.filter("snippet",function(value){
+      if (value) {
+        return value.toString().slice(0, 5) + "..."
+      }else {
+        return value
+      }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=dpYxFY9D1YTOZWQPbK9GjVbiY0vGGV3E"></script>
+    <script src="https://code.bdstatic.com/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <!--    vue-resource 包导入-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.js"></script>
+    <title>确诊患者轨迹</title>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #result{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 0px 7px;
+            min-width: 350px;
+            height: 70px;
+            line-height: 35px;
+            background: #fff;
+            box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+            border-radius: 7px;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id='result'>
+        搜索个人轨迹：
+        <input v-model="search" type="text" >
+        <button id="searchButton" v-on:click="showMeTheTrack()">搜索</button>
+        <br/>
+        <input type="checkbox" id="0" value="0" v-model="checkedIds">
+        <label for="0">0</label>
+        <input type="checkbox" id="1" value="1" v-model="checkedIds">
+        <label for="1">1</label>
+        <input type="checkbox" id="2" value="2" v-model="checkedIds">
+        <label for="2">2</label>
+        <input type="checkbox" id="3" value="3" v-model="checkedIds">
+        <label for="3">3</label>
+        <span>选择的值为: {{ checkedIds }}</span>
+    </div>
+</div>
+<div id='container'>
+</div>
+
+<!--<script>-->
+<!--    var map=new BMapGL.Map('container');-->
+<!--    map.centerAndZoom(new BMapGL.Point(116.331398,39.897445), 13);-->
+<!--    //滚动缩放-->
+<!--    map.enableScrollWheelZoom(true);-->
+<!--    //控件-->
+<!--    var top_left_control = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺-->
+<!--    map.addControl(top_left_control);-->
+<!--    -->
+<!--</script>-->
+<script>
+    var vm = new Vue({
+        // wrong
+        // el:'body',
+        // true
+        el: '#app',
+        data: {
+            patients:[],
+            search:"",
+            map:new BMapGL.Map('container'),
+            color:[],
+            checkedIds:[]
+        },
+        created(){
+            //颜色表
+            color=["#000000","#2F0000","#600030","#460046","#28004D","#AE0000","#F00078","#D200D2","#8600FF","#000079","#000079","#003E3E","#006030","#006000"]
+
+            //创建map
+            this.map.centerAndZoom(new BMapGL.Point(116.331398,39.897445), 13);
+            //滚动缩放
+            this.map.enableScrollWheelZoom(true);
+            //控件
+            var top_left_control = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+            this.map.addControl(top_left_control);
+            //获取patients
+
+            for (var i=1;i<20;i++)
+            {
+                this.$http.get("http://localhost:10002/v1/get_user_by_id?user_id="+i).then(function (data) {
+                    this.patients = this.patients.concat(data.body.data);
+                })
+            }
+        },
+        methods: {
+            showMeTheTrack(){
+                //将旧的全部清掉
+                this.map.clearOverlays();
+                for(var i=0;i<this.filterpatients.length;i++){
+                    console.log(this.filterpatients[i].lon+" "+this.filterpatients[i].lat)
+                    //创建点的标注
+                    var point = new BMapGL.Point(this.filterpatients[i].lon,this.filterpatients[i].lat);
+                    var content = "病例:"+this.filterpatients[i].userId+" 状态:"+this.filterpatients[i].status;
+                    var label = new BMapGL.Label(content, {       // 创建文本标注
+                        position: point,                          // 设置标注的地理位置
+                        offset: new BMapGL.Size(0,0)           // 设置标注的偏移量
+                    })
+                    this.map.addOverlay(label);
+
+                    //创建i点的标注
+                    var marker = new BMapGL.Marker(new BMapGL.Point(this.filterpatients[i].lon,this.filterpatients[i].lat))
+                    this.map.addOverlay(marker);
+                    //创建折线
+                    if(i!=0&&this.filterpatients[i].userId==this.filterpatients[i-1].userId){
+                        console.log("绘制折线")
+                        var polyline = new BMapGL.Polyline([
+                                new BMapGL.Point(this.filterpatients[i-1].lon,this.filterpatients[i-1].lat),
+                                new BMapGL.Point(this.filterpatients[i].lon,this.filterpatients[i].lat),
+                            ],
+                            {strokeColor:color[this.filterpatients[i].userId], strokeWeight:6, strokeOpacity:0.5}
+                        );
+                        this.map.addOverlay(polyline);
+                    }
+                }
+
+                // //向地图添加标注物
+                // var marker = new BMapGL.Marker(new BMapGL.Point(116.331398,39.897445));        // 创建标注
+                // var marker2 = new BMapGL.Marker(new BMapGL.Point(116.431398,39.897445));
+                // // 创建标注
+                // this.map.addOverlay(marker);
+                // this.map.addOverlay(marker2);
+                //
+                // //向地图添加标注折线
+                // var polyline = new BMapGL.Polyline([
+                //         new BMapGL.Point(116.331398,39.897445),
+                //         new BMapGL.Point(116.431398,39.897445),
+                //
+                //     ],
+                //     {strokeColor:color[0], strokeWeight:6, strokeOpacity:0.5}
+                // );
+                // this.map.addOverlay(polyline);
+
+            }
+        },
+        computed:{
+            filterpatients:function(){
+              return this.patients.filter((patient)=>{
+                var id_flag = true;
+                if(this.search!="") {
+                    id_flag = patient.userId.toString() == this.search;
+                }
+                var status_flag = true;
+                for(var i=0;i<this.checkedIds.length;i++) {
+                    if(patient.status==this.checkedIds[i]){
+                        status_flag=true;
+                        break;
+                    }else {
+                        status_flag=false;
+                    }
+                }
+                return id_flag && status_flag;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

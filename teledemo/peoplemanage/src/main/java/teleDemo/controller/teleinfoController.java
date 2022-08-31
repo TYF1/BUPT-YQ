@@ -1,5 +1,6 @@
 package teleDemo.controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -11,10 +12,7 @@ import teleDemo.entities.tbInfo;
 import teleDemo.entities.tbuser;
 import teleDemo.mapper.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 public class teleinfoController {
@@ -22,6 +20,7 @@ public class teleinfoController {
     comInfoMapper comInfoMapper;
     @Resource
     userInfoMapper userInfoMapper;
+
 
     @GetMapping("/v1/comInfo")
     public GetVo gettbInfo(HttpServletRequest request){
@@ -32,6 +31,7 @@ public class teleinfoController {
         GetVo<tbInfo> getVo = new GetVo<>(0,"获取数据成功！",size,tbInfos);
         return  getVo;
     }
+
 
     public List<tbInfo> remove_redundancy(List<tbInfo> list){
         List<tbInfo> tbInfos1 = new ArrayList<>();

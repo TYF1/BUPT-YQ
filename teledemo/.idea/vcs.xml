@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/peoplemanage/src/main/resources/static/teledemo的前端页面" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/peoplemanage/src/main/resources/teledemo的前端页面" vcs="Git" />
   </component>
 </project>
