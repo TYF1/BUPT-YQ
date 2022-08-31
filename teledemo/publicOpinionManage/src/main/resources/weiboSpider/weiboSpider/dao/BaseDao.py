@@ -2,11 +2,18 @@ import pymysql
 import json
 import os
 class BaseDao():
-    def __init__(self,config="D:\大三\暑期实习\习题1\day07\mysql.json"):
-        self.__config=json.load(open(config,mode='r',encoding='utf-8'))
-        self.__conn=None
-        self.__cursor=None
-        print(self.__config)
+    def __init__(self):
+        myConfig = {
+                           "host": "127.0.0.1",
+                           "user": "root",
+                           "password": "000000",
+                           "database": "eqe",
+                           "port": 3306,
+                           "charset":"utf8"
+                       }
+        self.__config = myConfig
+        self.__conn = None
+        self.__cursor = None
         pass
 
     def getConnection(self):

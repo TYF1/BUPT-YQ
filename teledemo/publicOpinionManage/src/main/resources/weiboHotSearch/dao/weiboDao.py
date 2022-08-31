@@ -17,5 +17,11 @@ class WeiboDao(BaseDao):
         result = self.execute(sql, [data.get('sentiment'), data.get('commentId')])
         self.commit()
         return result
+
+    def truncateHSTable(self):
+        sql = "truncate table t_hotsearch"
+        result = self.execute(sql)
+        self.commit()
+        return result
     
     pass

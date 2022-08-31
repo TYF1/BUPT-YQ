@@ -16,6 +16,7 @@ hsDict = {
 hsDict = {}
 
 fileName = "teledemo/publicOpinionManage/src/main/resources/weiboHotSearch/hotSearch.html"
+
 if os.path.exists(fileName):
     with open(fileName, encoding="UTF-8") as file:
         contents = file.read()
@@ -33,6 +34,7 @@ if os.path.exists(fileName):
         weiboDao = WeiboDao()
 
         try:
+            weiboDao.truncateHSTable()
             for hs, hotness, time in zip(hsList, hotnessList, timeList):
                 sql = 'insert into t_hotsearch (hsContent, hsHotness, hsTime) values (%s, %s, %s)'
                 params = [hs, hotness, time]

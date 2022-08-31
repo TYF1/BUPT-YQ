@@ -13,4 +13,7 @@ class WeibospiderItem(scrapy.Item):
     userTime=scrapy.Field()
     userComments=scrapy.Field()
     userFans=scrapy.Field()
+    keyWord=scrapy.Field()
+    Link=scrapy.Field()
+    comments_1=scrapy.Field()
     pass

@@ -100,6 +100,11 @@
 
     <!--多模块打包：只需在启动类所在模块的POM文件：指定打包插件 -->
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

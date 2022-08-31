@@ -13,8 +13,8 @@ from weiboSpider.dao.JobDao import JobDao
 class WeibospiderPipeline:
     def process_item(self, item, spider):
 
-        sql="insert into weibo_comments(userName,userFans,userComments) values(%s,%s,%s)"
-        params=[item['userName'],item['userFans'],item['userComments']]
+        sql="insert into weibo_comments(userName,userFans,userComments,keyWord,Link,comments_1) values(%s,%s,%s,%s,%s,%s)"
+        params=[item['userName'],item['userFans'],item['userComments'],item['keyWord'],item['Link'],item['comments_1']]
         try:
             jobDao=JobDao()
             result=jobDao.createJobdata(sql,params)
