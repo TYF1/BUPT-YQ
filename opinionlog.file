@@ -8,65 +8,945 @@ nohup: ignoring input
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.7.3)
 
-2022-08-31 20:31:23.293  INFO 5435 --- [           main] c.g.o.OpinionmanageApplication           : Starting OpinionmanageApplication v0.0.1-SNAPSHOT using Java 1.8.0_341 on iZa6iz1570ibquZ with PID 5435 (/usr/java/apache-tomcat-9.0.65/webapps/opinionmanage-0.0.1-SNAPSHOT.jar started by root in /usr/java/apache-tomcat-9.0.65/webapps)
-2022-08-31 20:31:23.298  INFO 5435 --- [           main] c.g.o.OpinionmanageApplication           : No active profile set, falling back to 1 default profile: "default"
-2022-08-31 20:31:24.988  INFO 5435 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-08-31 20:31:25.234  INFO 5435 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 232 ms. Found 1 JPA repository interfaces.
-2022-08-31 20:31:25.536  INFO 5435 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=0494c4a7-822c-3e31-8220-813a347011da
-2022-08-31 20:31:26.211  INFO 5435 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7002 (http)
-2022-08-31 20:31:26.225  INFO 5435 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-31 20:31:26.225  INFO 5435 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-08-31 20:31:26.357  INFO 5435 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-31 20:31:26.357  INFO 5435 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2972 ms
-2022-08-31 20:31:26.493  INFO 5435 --- [           main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2022-08-31 20:31:26.736  INFO 5435 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2022-08-31 20:31:27.040  INFO 5435 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-08-31 20:31:27.151  INFO 5435 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-08-31 20:31:27.505  INFO 5435 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-08-31 20:31:28.070  INFO 5435 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-08-31 20:31:29.043  INFO 5435 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-08-31 20:31:29.056  INFO 5435 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-08-31 20:31:29.992  WARN 5435 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-08-31 20:31:30.209  INFO 5435 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2022-08-31 20:31:30.673  INFO 5435 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2022-08-31 20:31:30.773  WARN 5435 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2022-08-31 20:31:30.780  INFO 5435 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-08-31 20:31:30.824  INFO 5435 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2022-08-31 20:31:30.873  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2022-08-31 20:31:30.880  INFO 5435 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2022-08-31 20:31:30.908  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2022-08-31 20:31:30.909  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2022-08-31 20:31:31.606  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2022-08-31 20:31:31.609  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2022-08-31 20:31:31.612  INFO 5435 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2022-08-31 20:31:31.619  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1661949091617 with initial instances count: 0
-2022-08-31 20:31:31.622  INFO 5435 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application UNKNOWN with eureka with status UP
-2022-08-31 20:31:31.622  INFO 5435 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661949091622, current=UP, previous=STARTING]
-2022-08-31 20:31:31.624  INFO 5435 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_UNKNOWN/iZa6iz1570ibquZ:7002: registering service...
-2022-08-31 20:31:31.675  INFO 5435 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7002 (http) with context path ''
-2022-08-31 20:31:31.675  INFO 5435 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 7002
-2022-08-31 20:31:31.702  INFO 5435 --- [           main] c.g.o.OpinionmanageApplication           : Started OpinionmanageApplication in 9.267 seconds (JVM running for 9.897)
-2022-08-31 20:31:31.844  INFO 5435 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_UNKNOWN/iZa6iz1570ibquZ:7002 - registration status: 204
-2022-08-31 20:32:01.609  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2022-08-31 20:32:01.610  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2022-08-31 20:32:01.632  INFO 5435 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2022-08-31 20:32:18.585  INFO 5435 --- [nio-7002-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1661866843,1661867659] that contained an invalid cookie. That cookie will be ignored.
+2022-09-01 09:19:41.441  INFO 7039 --- [           main] c.g.o.OpinionmanageApplication           : Starting OpinionmanageApplication v0.0.1-SNAPSHOT using Java 1.8.0_341 on iZa6iz1570ibquZ with PID 7039 (/usr/java/apache-tomcat-9.0.65/webapps/opinionmanage-0.0.1-SNAPSHOT.jar started by root in /usr/java/apache-tomcat-9.0.65/webapps)
+2022-09-01 09:19:41.468  INFO 7039 --- [           main] c.g.o.OpinionmanageApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-01 09:19:43.008  INFO 7039 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-01 09:19:43.250  INFO 7039 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 229 ms. Found 1 JPA repository interfaces.
+2022-09-01 09:19:43.533  INFO 7039 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=0494c4a7-822c-3e31-8220-813a347011da
+2022-09-01 09:19:44.157  INFO 7039 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7002 (http)
+2022-09-01 09:19:44.170  INFO 7039 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 09:19:44.171  INFO 7039 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-01 09:19:44.301  INFO 7039 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 09:19:44.301  INFO 7039 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2767 ms
+2022-09-01 09:19:44.426  INFO 7039 --- [           main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-09-01 09:19:44.653  INFO 7039 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-09-01 09:19:44.935  INFO 7039 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-01 09:19:45.038  INFO 7039 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-01 09:19:45.322  INFO 7039 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-01 09:19:45.828  INFO 7039 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-01 09:19:46.808  INFO 7039 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-01 09:19:46.821  INFO 7039 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-01 09:19:47.794  WARN 7039 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-01 09:19:48.082  INFO 7039 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-09-01 09:19:48.577  INFO 7039 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-09-01 09:19:48.689  WARN 7039 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-09-01 09:19:48.696  INFO 7039 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-09-01 09:19:48.744  INFO 7039 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-09-01 09:19:48.791  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-09-01 09:19:48.799  INFO 7039 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:19:48.828  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-09-01 09:19:48.828  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-09-01 09:19:48.828  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-09-01 09:19:48.828  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-09-01 09:19:48.829  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-09-01 09:19:48.829  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-09-01 09:19:48.829  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-09-01 09:19:49.373  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-09-01 09:19:49.377  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-09-01 09:19:49.380  INFO 7039 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-09-01 09:19:49.386  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1661995189385 with initial instances count: 1
+2022-09-01 09:19:49.389  INFO 7039 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application UNKNOWN with eureka with status UP
+2022-09-01 09:19:49.389  INFO 7039 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661995189389, current=UP, previous=STARTING]
+2022-09-01 09:19:49.391  INFO 7039 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_UNKNOWN/iZa6iz1570ibquZ:7002: registering service...
+2022-09-01 09:19:49.442  INFO 7039 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7002 (http) with context path ''
+2022-09-01 09:19:49.443  INFO 7039 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 7002
+2022-09-01 09:19:49.481  INFO 7039 --- [           main] c.g.o.OpinionmanageApplication           : Started OpinionmanageApplication in 8.729 seconds (JVM running for 9.299)
+2022-09-01 09:19:49.487  INFO 7039 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_UNKNOWN/iZa6iz1570ibquZ:7002 - registration status: 204
+2022-09-01 09:19:50.685  INFO 7039 --- [nio-7002-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1661866843,1661867659,1661949138;] that contained an invalid cookie. That cookie will be ignored.
  Note: further occurrences of this error will be logged at DEBUG level.
-2022-08-31 20:32:18.597  INFO 5435 --- [nio-7002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-31 20:32:18.597  INFO 5435 --- [nio-7002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-08-31 20:32:18.599  INFO 5435 --- [nio-7002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-01 09:19:50.695  INFO 7039 --- [nio-7002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-01 09:19:50.695  INFO 7039 --- [nio-7002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-01 09:19:50.697  INFO 7039 --- [nio-7002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
 Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
 Hibernate: select count(*) as col_0_0_ from opinions opinions0_
-核酸
-1
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.keyword like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.keyword like ?
+新冠
+2022-09-01 09:21:36.687 ERROR 7039 --- [nio-7002-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+2022-09-01 09:24:48.831  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+2022-09-01 09:29:48.832  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.keyword like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+新冠
+2022-09-01 09:33:39.409 ERROR 7039 --- [nio-7002-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 09:34:48.832  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:39:48.833  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:44:48.834  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:49:48.834  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:54:48.835  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 09:58:09.677  INFO 7039 --- [nio-7002-exec-6] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xea0x010x000x000xe60x030x03X0x83P<0xa40x180xecn0xbc0xf4S0x05W@0x85Q0x1ds0xec0x17z0x000xac0xd3<0xb40xcc0x8520xd60xde0x97 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+
+2022-09-01 09:59:48.836  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 10:04:48.836  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 10:09:48.837  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 10:14:48.837  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 10:19:48.838  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+疫情
+2022-09-01 10:20:33.251 ERROR 7039 --- [nio-7002-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 10:24:48.839  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+新冠
+2022-09-01 10:25:22.528 ERROR 7039 --- [nio-7002-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 10:29:48.839  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+2022-09-01 10:34:48.840  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+新冠
+2022-09-01 10:38:06.558 ERROR 7039 --- [nio-7002-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 10:39:48.840  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+2022-09-01 10:44:48.841  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.keyword like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.keyword like ?
+2022-09-01 10:49:48.842  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+新冠
+2022-09-01 10:52:51.708 ERROR 7039 --- [nio-7002-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 10:54:48.842  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 10:59:48.843  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 11:04:48.844  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.feature=? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.feature=?
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ where opinions0_.context like ? order by opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_ where opinions0_.context like ?
+疫情
+2022-09-01 11:08:13.892 ERROR 7039 --- [nio-7002-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 11:09:48.844  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 11:14:48.845  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?, ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+2022-09-01 11:19:48.846  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+疫情
+2022-09-01 11:23:16.859 ERROR 7039 --- [io-7002-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+2022-09-01 11:24:48.846  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 11:29:48.847  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+新冠
+2022-09-01 11:31:28.839 ERROR 7039 --- [nio-7002-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+新冠
+2022-09-01 11:31:49.265 ERROR 7039 --- [nio-7002-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.io.IOException: Cannot run program "D:\Anaconda\anaconda3\envs\learning\python.exe": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:621) ~[na:1.8.0_341]
+	at java.lang.Runtime.exec(Runtime.java:486) ~[na:1.8.0_341]
+	at com.group5.opinionmanage.controller.OpinionController.getNewData(OpinionController.java:88) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar!/:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar!/:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.3.jar!/:2.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar!/:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.65.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.65.jar!/:na]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_341]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_341]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247) ~[na:1.8.0_341]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_341]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_341]
+	... 60 common frames omitted
+
+Hibernate: select opinions0_.oid as oid1_0_, opinions0_.commentcount as commentc2_0_, opinions0_.context as context3_0_, opinions0_.feature as feature4_0_, opinions0_.heat as heat5_0_, opinions0_.keyword as keyword6_0_, opinions0_.link as link7_0_, opinions0_.questiontext as question8_0_, opinions0_.voteupcount as voteupco9_0_ from opinions opinions0_ order by opinions0_.heat desc, opinions0_.heat desc limit ?
+Hibernate: select count(opinions0_.oid) as col_0_0_ from opinions opinions0_
+Hibernate: select count(*) as col_0_0_ from opinions opinions0_
+2022-09-01 11:34:48.847  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-01 11:39:48.848  INFO 7039 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

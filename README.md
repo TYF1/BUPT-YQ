@@ -1,5 +1,5 @@
 # teledemo
- 大四小学期
+ 大四小学期 第五组--负责模块：舆情管理模块
 
 ## Python环境：
 
@@ -18,3 +18,6 @@ jieba
 pyquery
 
 pymysql
+
+## 具体部署方法
+见脚本环境文件requirements.txt

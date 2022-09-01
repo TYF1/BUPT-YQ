@@ -77,12 +77,13 @@ public class OpinionController {
         return new GetVo(0, "success", count, info);
     }
 
+
     @GetMapping("/spider")
     public String getNewData(String spiderContent,String spiderCount) throws IOException, InterruptedException {
-        String python = "D:\\Anaconda\\anaconda3\\envs\\learning\\python.exe";
-        String script = "C:\\Users\\10569\\Desktop\\teledemo\\teledemo\\spider\\run.py";
-//        String python="/root/anaconda3/envs/learning/bin/python";
-//        String script="/usr/scripts/spider/run.py";
+//        String python = "D:\\Anaconda\\anaconda3\\envs\\learning\\python.exe";
+//        String script = "C:\\Users\\10569\\Desktop\\teledemo\\teledemo\\spider\\run.py";
+        String python="/root/anaconda3/envs/learning/bin/python";
+        String script="/usr/scripts/spider/run.py";
         System.out.println(spiderContent);
         String[] argument = new String[]{python, script, spiderCount, spiderContent};
         Process process = Runtime.getRuntime().exec(argument);
