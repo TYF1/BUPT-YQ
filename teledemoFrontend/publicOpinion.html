@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>预测记录信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+
+<body>
+    <p style="text-align: center">
+        <img src="images/output2.png" style="width: 40%;height: auto"/>
+    </p>
+    <div style="text-align: center; font-size: 20px;">
+        热搜Top100词 词云图
+    </div>
+    <p style="text-align: center">
+        <img src="images/emotionalAnalysis.png" style="width: 60%;height: auto"/>
+    </p>
+    <div style="text-align: center; font-size: 20px;">
+        微博爬虫结果情感分析图
+    </div>
+    <button type="button" class="layui-btn" id="updateButton" onclick="updateHS()">更新热搜数据库</button>
+<!--    <button type="button" class="layui-btn" onclick="updateWB()">更新微博数据库</button>-->
+    <div style="text-align: center; font-size: 20px;">
+        微博疫情热搜Top10
+    </div>
+    <table id="disasterPredictionTb" lay-filter="disasterPredictionTb"></table>
+    <div style="text-align: center; font-size: 20px;">
+        实时微博Top10
+    </div>
+    <form action="" class="layui-form">
+        <div class="layui-inline">
+            <input class="layui-input" name="keyWord" id="keyWord" placeholder="请输入关键词" autocomplete="off">
+        </div>
+
+        <button type="button" class="layui-btn" data-type="reload" id="search"><i class="layui-icon">&#xe615;</i>开始爬虫并搜索</button>
+
+    </form>
+    <table id="weiboTb" lay-filter="disasterPredictionTb"></table>
+    <div class="layui-card-header">
+    </div>
+
+    <script type="text/javascript">
+        function updateHS(){
+            // document.location.href = "http://127.0.0.1:10006/v1/hsUpdate"
+            $('#updateButton').attr("disabled",true).addClass("layui-btn-disabled");
+            document.getElementById("updateButton").innerHTML = "正在更新中...";
+            $.ajax({
+                url: 'http://114.115.254.186:10006/v1/hsUpdate',
+                type: 'GET',     // 请求类型，常用的有 GET 和 POST
+                dataType: 'text',
+                timeout: 100000,
+                data: {
+                    // 请求参数
+                },
+                error : function() {
+                    alert('更新失败 ');
+                    $('#updateButton').attr("disabled", false).removeClass("layui-btn-disabled");
+                    document.getElementById("updateButton").innerHTML = "更新热搜数据库";
+                },
+                success: function(data) { // 接口调用成功回调函数
+                    if (data == "failed") {
+                        alert("更新失败");
+                    }else {
+                        alert("已更新" + data + "条数据，请刷新查看");
+                    }
+                    $('#updateButton').attr("disabled", false).removeClass("layui-btn-disabled");
+                    document.getElementById("updateButton").innerHTML = "更新热搜数据库";
+                }
+            });
+        }
+        function updateWB() {
+            setTimeout(function (){alert("更新成功")}, 3000);
+            location.reload()
+        }
+
+        var weiboKeyWord = "疫情"
+        var weiboBaseUrl = 'http://114.115.254.186:10006/v1/weiboInfo'
+    </script>
+
+    <script type="text/html" id="barDemo">
+        <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
+        // <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    // <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="pictureTpl">
+        <a href="{{d.picture}}" target="_blank" class="layui-table-link">查看图片</a>
+    </script>
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script type="text/javascript">
+        layui.use('table', function () {
+            var table = layui.table;
+
+            //第一个实例
+            table.render({
+                elem: '#disasterPredictionTb',
+                url: 'http://114.115.254.186:10006/v1/hsInfo',
+                page: false,
+                toolbar: '#toolbarDemo',
+                title: '热搜Top10',
+                defaultToolbar: ['filter', 'exports', 'print'],
+                cols: [
+                    [
+                        //{type:'checkbox', fixed: 'left'},
+                        {
+                            field: 'hsTime',
+                            title: '时间',
+                            width: '30%',
+                            sort: true,
+                            fixed: true
+                        }, {
+                            field: 'hsContent',
+                            title: '热搜内容',
+                            width: '50%',
+                            sort: true,
+                            fixed: true,
+                        }, {
+                            field: 'hotness',
+                            title: '热度',
+                            width: '20%'
+                        }
+                    ]
+                ]
+            });
+
+        });
+        layui.use('table', function () {
+            var table = layui.table;
+
+            //第一个实例
+            weiboTable = table.render({
+                elem: '#weiboTb',
+                id: 'weiboTb',
+                url: 'http://114.115.254.186:10006/v1/weiboInfo',
+                page: false,
+                where :{
+                    keyWord: weiboKeyWord
+                },
+                toolbar: '#toolbarDemo',
+                title: '微博Top10',
+                defaultToolbar: ['filter', 'exports', 'print'],
+                cols: [
+                    [
+                        //{type:'checkbox', fixed: 'left'},
+                        {
+                            field: 'userName',
+                            title: '微博用户',
+                            width: '10%',
+                            sort: true,
+                            fixed: true
+                        }, {
+                        field: 'comments_1',
+                        title: '微博内容',
+                        width: '60%',
+                        sort: true,
+                        fixed: true,
+                    }, {
+                        field: 'userFans',
+                        title: '微博用户粉丝数',
+                        width: '10%'
+                    },{
+                        field: 'link',
+                        title: '微博链接',
+                        width: '20%'
+                    }
+                    ]
+                ]
+            });
+            var $ = layui.$, active = {
+                reload: function(){
+                    var keyWord= $('#keyWord');
+                    console.log(keyWord);
+
+                    //执行重载
+                    table.reload('weiboTb', {	//testReload为table中的id
+                            url: 'http://114.115.254.186:10006/v1/weiboSearch',
+                            where: {
+                                keyWord:keyWord.val(),
+                            }
+                        }
+                    ),'data';
+                }
+            };
+
+            $('#search').on('click', function(){	//search为搜索button中设置的id名
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

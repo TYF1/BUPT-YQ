@@ -8,8 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
-        <module name="peoplemanage" />
         <module name="peoplemanage (1)" />
+        <module name="peoplemanage (2)" />
+        <module name="peoplemanage" />
       </profile>
     </annotationProcessing>
   </component>

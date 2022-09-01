@@ -1,3 +1,11 @@
+/**
+ * @Project Name:MSHD
+ * @File Name: PostVo.java
+ * @Description: Post实体类
+ * @HISTORY：
+ *    Created   2022.8.24  魏瑾
+ */
+
 package teleDemo.entities;
 
 import java.util.List;

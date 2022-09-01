@@ -1,3 +1,11 @@
+/**
+ * @Project Name:MSHD
+ * @File Name: GetVo.java
+ * @Description: Get实体类
+ * @HISTORY：
+ *    Created   2022.8.24  魏瑾
+ */
+
 package teleDemo.entities;
 
 import java.util.List;

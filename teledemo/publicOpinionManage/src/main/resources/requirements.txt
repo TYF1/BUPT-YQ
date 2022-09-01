@@ -1,0 +1,7 @@
+pymysql
+scrapy
+numpy
+lxml
+snownlp
+wordcloud
+jieba
