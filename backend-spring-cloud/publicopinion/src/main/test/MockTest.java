@@ -1,17 +1,13 @@
 import com.tetesense.publicopinion.PublicOpinionApplication;
-import com.tetesense.publicopinion.WeiboController;
-import org.junit.jupiter.api.BeforeAll;
+import com.tetesense.publicopinion.weibo.WeiboController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-@SpringBootTest(classes = PublicOpinionApplication.class)
+@SpringBootTest(classes = PublicOpinionApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MockTest {
 
     @Autowired

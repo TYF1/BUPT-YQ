@@ -1,6 +1,9 @@
 server:
   port: 10003
 
+pythonPath: "/home/xg/weibo-crawler/venv/bin/python"
+startPyPath: "/home/xg/weibo-crawler/weibo-crawler/start.py"
+
 spring:
   application:
     name: publicopinion
@@ -9,7 +12,7 @@ spring:
 #    driver-class-name: 'com:mysql:cj:jdbc:Driver'
     url: 'jdbc:mysql://localhost:3306/weibo'
     username: root
-    password: 123456
+    password: root
     jpa:
       properties:
         hibernate:
