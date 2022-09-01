@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计图</title>
+    <script src="/js/echarts.min.js"></script>
+</head>
+<body>
+    <div id="app" style="width: 550px;height: 400px;float:left;overflow:hidden;"></div>&nbsp;&nbsp;&nbsp;
+    <div id="container" style="width: 550px; height: 400px;float:left;overflow:hidden;" ></div>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        var myCharts = echarts.init(document.querySelector('#app'))
+        var counts = [];
+        var barY = [];
+        $.ajax({
+          url: 'http://localhost:10002/v1/userRelationInfo',
+          type: "GET",
+          xhrFields: {
+            withCredentials: true //允许跨域认证
+          },
+          success: function (datas) {
+            let i,Count0,Count1,Count2,Count3;
+            for(i = 0 , Count0 = 0 , Count1 = 0, Count2= 0 ,Count3 = 0 ; i < datas.length; i++){
+              if(datas[i].status == "1"){
+                Count1 ++;
+              }
+              else if(datas[i].status == "2"){
+                Count2 ++;
+              }
+              else if(datas[i].status == "3"){
+                Count3 ++;
+              }
+              else if(datas[i].status == "0"){
+                Count0 ++;
+              }
+            }
+            barY[0] = Count0;
+            barY[1] = Count1;
+            barY[2] = Count2;
+            barY[3] = Count3;
+            counts[0] = {
+              name: '确诊',
+              value: Count1 + ""
+            };
+            counts[1] = {
+              name: '密接',
+              value: Count2 + ""
+            };
+            counts[2] = {
+              name: '次密接',
+              value: Count3 + ""
+            };
+            counts[3] = {
+              name: '正常',
+              value: Count0 + ""
+            };
+          },
+          error: function (datas) {
+          }, async: false,
+        })
+        var option = {
+            // 注意：饼图不是直角坐标系图表，就不用配置x轴和y轴了
+            series: [
+                {
+                    type: 'pie',
+                    data: counts,
+                    color:['#ff0000', '#FF9900', '#BFBF00', '#00ff00']
+                }
+            ]
+        }
+        myCharts.setOption(option)
+
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option1;
+
+        option1 = {
+            xAxis: {
+                type: 'category',
+                data: ['正常', '确诊', '密接', '次密接']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    data: barY,
+                    type: 'bar'
+                }
+            ]
+        };
+
+        if (option1 && typeof option1 === 'object') {
+            myChart.setOption(option1);
+        }
+        window.addEventListener('resize', myChart.resize);
+    </script>
+</body>
+</html>

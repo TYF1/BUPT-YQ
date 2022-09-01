@@ -1,0 +1,16 @@
+teleDemo\service\UserService.class
+teleDemo\entities\PostVo.class
+teleDemo\controller\teleinfoController.class
+teleDemo\peopleManage10002.class
+teleDemo\entities\tbInfo.class
+teleDemo\mapper\comInfoMapper.class
+teleDemo\config\MyMvcConfig.class
+teleDemo\controller\ViewController.class
+teleDemo\entities\tbuser.class
+teleDemo\mapper\relationInfoMapper.class
+teleDemo\entities\tbRelation.class
+teleDemo\config\ApplicationContextConfig.class
+teleDemo\service\InfoService.class
+teleDemo\mapper\userInfoMapper.class
+teleDemo\entities\GetVo.class
+teleDemo\service\relationService.class

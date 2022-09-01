@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>关系图</title>
+</head>
+
+<body>
+<div id="main" style="width: 1200px; height: 700px"></div>
+<div id="ss"></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+	var dataNodes = [];
+	var dataLinks = [];
+	var nodeSide = [];
+	$.ajax({
+		url: 'http://localhost:10002/v1/userRelationInfo',
+		type: "GET",
+		xhrFields: {
+			withCredentials: true //允许跨域认证
+		},
+		success: function (data) {
+			for(i = 0 ; i < data.length; i++){
+				for(j = 0 , k = 0; j < data.length; j++){
+					if(data[i].userId == data[j].relation){
+						k++;
+					}
+				}
+				symbolsize = 20 + 5 * k;
+				if(data[i].status == "1"){
+					nodesCategory = 0;
+					nodesLabel = "确诊" + ( i + 1);
+					nodesIgnore = false;
+					nodesFlag = true;
+				}
+				else if(data[i].status == "2"){
+					nodesCategory = 1;
+					nodesLabel = "密接" + ( i + 1);
+					nodesIgnore = false;
+					nodesFlag = true;
+				}
+				else if(data[i].status == "3"){
+					nodesCategory = 2;
+					nodesLabel = "次密接" +( i + 1);
+					nodesIgnore = false;
+					nodesFlag = true;
+				}
+				else if(data[i].status == "0"){
+					nodesCategory = 3;
+					symbolsize = 10;
+					nodesLabel = "正常" + ( i + 1);
+					nodesIgnore = true;
+					nodesFlag = true;
+				}
+				nodesId = data[i].userId;
+				nodesName = data[i].userId + "";
+
+				dataNodes[i] = {
+					id: nodesId,
+					category: nodesCategory,
+					name: nodesName,
+					label: nodesLabel,
+					symbolSize: symbolsize,
+					ignore: nodesIgnore,
+					flag: nodesFlag
+				}
+			}
+			for(i = 0,j=0; i < data.length ; i++){
+				if(data[i].relation > 0){
+					linksSource = data[i].userId - 1;
+					linksTarget = data[i].relation - 1;
+					var link = {
+						source: linksSource,
+						target: linksTarget,
+						symbolSize: [5, 20],
+					}
+					dataLinks[j] = link;
+					j++;
+				}
+			}
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+			require(["echarts", "echarts/chart/force"], function(ec) {
+				var myChart = ec.init(document.getElementById('main'), 'macarons');
+				var option = {
+					tooltip: {
+						show: false
+					},
+					color: ['#ff0000',  '#BFBF00', '#FF9900','#00ff00'],
+					series: [{
+						type: 'force',
+						name: "Force tree",
+						itemStyle: {
+							normal: {
+								label: {
+									show: true
+								},
+								nodeStyle: {
+									brushType: 'both',
+									borderColor: 'rgba(0,0,0,0.4)',
+									borderWidth: 1
+								},
+							}
+						},
+						force : { //力引导图基本配置
+							//initLayout: ,//力引导的初始化布局，默认使用xy轴的标点
+							repulsion : 100,//节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
+							gravity : 0.03,//节点受到的向中心的引力因子。该值越大节点越往中心点靠拢。
+							edgeLength :80,//边的两个节点之间的距离，这个距离也会受 repulsion。[10, 50] 。值越小则长度越长
+							layoutAnimation : true//因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
+						},
+						categories: [{
+							name: '确诊',
+						}, {
+							name: '密切接触者'
+						}, {
+							name: '次密切接触者'
+						}, {
+							name: '正常'
+						}],
+						edgeSymbol: ['circle', 'arrow'],
+						edgeSymbolSize: [4, 10],
+						edgeLabel: {
+							fontSize: 20
+						},
+						nodes: dataNodes,
+						links: dataLinks,
+					}]
+				};
+				myChart.setOption(option);
+				var ecConfig = require('echarts/config');
+
+				function openOrFold(param) {
+					var option = myChart.getOption();
+					var nodesOption = option.series[0].nodes;
+					var linksOption = option.series[0].links;
+					var data = param.data;
+					var linksNodes = [];
+
+					var categoryLength = option.series[0].categories.length;
+
+					if (data != null && data != undefined) {
+						if (data.flag) {
+
+							for (var m in linksOption) {
+
+								if (linksOption[m].target == data.id) {
+									linksNodes.push(linksOption[m].source);
+								}
+							}
+							if (linksNodes != null && linksNodes != undefined) {
+								for (var p in linksNodes) {
+									nodesOption[linksNodes[p]].ignore = false;
+									nodesOption[linksNodes[p]].flag = true;
+								}
+							}
+							nodesOption[data.id].flag = false;
+							myChart.setOption(option);
+						} else {
+
+							for (var m in linksOption) {
+
+								if (linksOption[m].target == data.id) {
+									linksNodes.push(linksOption[m].source);
+								}
+								if (linksNodes != null && linksNodes != undefined) {
+									for (var n in linksNodes) {
+										if (linksOption[m].target == linksNodes[n]) {
+											linksNodes.push(linksOption[m].source);
+										}
+									}
+								}
+							}
+							if (linksNodes != null && linksNodes != undefined) {
+								for (var p in linksNodes) {
+									nodesOption[linksNodes[p]].ignore = true;
+									nodesOption[linksNodes[p]].flag = true;
+								}
+							}
+							nodesOption[data.id].flag = true;
+							myChart.setOption(option);
+						}
+					}
+				}
+				myChart.on(ecConfig.EVENT.CLICK, openOrFold);
+
+			});
+		},
+		error: function (data) {
+		}
+	})
+	// require.config({
+	// 	paths: {
+	// 		echarts: 'http://echarts.baidu.com/build/dist'
+	// 	}
+	// });
+	// require(["echarts", "echarts/chart/force"], function(ec) {
+	// 	var myChart = ec.init(document.getElementById('main'), 'macarons');
+	// 	var option = {
+	// 		tooltip: {
+	// 			show: false
+	// 		},
+	// 		series: [{
+	// 			type: 'force',
+	// 			name: "Force tree",
+	// 			itemStyle: {
+	// 				normal: {
+	// 					label: {
+	// 						show: true
+	// 					},
+	// 					nodeStyle: {
+	// 						brushType: 'both',
+	// 						borderColor: 'rgba(0,255,255,0.4)',
+	// 						borderWidth: 1
+	// 					}
+	// 				}
+	// 			},
+	// 			categories: [{
+	// 				name: '确诊'
+	// 			}, {
+	// 				name: '密切接触者'
+	// 			}, {
+	// 				name: '次密切接触者'
+	// 			}, {
+	// 				name: '正常'
+	// 			}],
+	//
+	// 			nodes: dataNodes,
+	// 			links: dataLinks,
+	// 		}]
+	// 	};
+	// 	myChart.setOption(option);
+	// 	var ecConfig = require('echarts/config');
+	//
+	// 	function openOrFold(param) {
+	// 		var option = myChart.getOption();
+	// 		var nodesOption = option.series[0].nodes;
+	// 		var linksOption = option.series[0].links;
+	// 		var data = param.data;
+	// 		var linksNodes = [];
+	//
+	// 		var categoryLength = option.series[0].categories.length;
+	//
+	// 		if (data != null && data != undefined) {
+	// 			if (data.flag) {
+	//
+	// 				for (var m in linksOption) {
+	//
+	// 					if (linksOption[m].target == data.id) {
+	// 						linksNodes.push(linksOption[m].source);
+	// 					}
+	// 				}
+	// 				if (linksNodes != null && linksNodes != undefined) {
+	// 					for (var p in linksNodes) {
+	// 						nodesOption[linksNodes[p]].ignore = false;
+	// 						nodesOption[linksNodes[p]].flag = true;
+	// 					}
+	// 				}
+	// 				nodesOption[data.id].flag = false;
+	// 				myChart.setOption(option);
+	// 			} else {
+	//
+	// 				for (var m in linksOption) {
+	//
+	// 					if (linksOption[m].target == data.id) {
+	// 						linksNodes.push(linksOption[m].source);
+	// 					}
+	// 					if (linksNodes != null && linksNodes != undefined) {
+	// 						for (var n in linksNodes) {
+	// 							if (linksOption[m].target == linksNodes[n]) {
+	// 								linksNodes.push(linksOption[m].source);
+	// 							}
+	// 						}
+	// 					}
+	// 				}
+	// 				if (linksNodes != null && linksNodes != undefined) {
+	// 					for (var p in linksNodes) {
+	// 						nodesOption[linksNodes[p]].ignore = true;
+	// 						nodesOption[linksNodes[p]].flag = true;
+	// 					}
+	// 				}
+	// 				nodesOption[data.id].flag = true;
+	// 				myChart.setOption(option);
+	// 			}
+	// 		}
+	// 	}
+	// 	myChart.on(ecConfig.EVENT.CLICK, openOrFold);
+	//
+	// });
+</script>
+
+</body>
+
+</html>
