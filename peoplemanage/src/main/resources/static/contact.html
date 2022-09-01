@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>预测记录信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+
+<body>
+
+<!--    <form class="layui-form" action="">
+        <div class="layui-btn-group demoTable">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent1" onClick="return false">最近24小时</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent2" onClick="return false">最近7天</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent3" onClick="return false">最近1个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent4" onClick="return false">最近6个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent5" onClick="return false">最近1年</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent6" onClick="return false">全部</button>
+        </div>
+    </form> -->
+    <div>
+        <a href="relationship.html" class="layui-btn">返回</a>
+    </div>
+    <div style="display:inline-block">
+        <h2>感染源</h2>
+        <table id="firstTb" lay-filter="firstTb"></table>
+    </div>
+    <div style="display:inline-block">
+        <h2>感染者</h2>
+        <table id="lastTb" lay-filter="lastTb"></table>
+    </div>
+    
+    <div class="layui-card-header">
+        <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
+       <!-- <button class="layui-btn" onclick="xadmin.open('添加预测数据','./disasterPredictionInfo-add.html',1200,600)"><i class="layui-icon"></i>添加</button> -->
+    </div>
+
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+
+layui.use(['layer','form','table'], function(){
+  var layer = layui.layer, $ = layui.jquery, form = layui.form, table = layui.table;
+  const date = sessionStorage.getItem("date");
+  const wifi = sessionStorage.getItem("wifi");
+  const status = sessionStorage.getItem("status");
+
+    //第一个实例
+    table.render({
+    elem: '#firstTb',
+    url: "http://101.200.132.176:10007/v1/getWifiEventDetail"+"?"+date+"&"+wifi+"&"+status,
+    page: true,
+    toolbar: '#toolbarDemo',
+    defaultToolbar: ['filter', 'exports', 'print'],
+    cols: [
+        [
+            //{type:'checkbox', fixed: 'left'},
+            {
+                field: 'id',
+                title: 'ID',
+                width: 100,
+                sort: true,
+                fixed: true
+            }, {
+                field: 'status',
+                title: '状态',
+                width: 200,
+                sort: true,
+                fixed: true,
+                templet:function(d){
+                    if(d.status==0){
+                        return '<span>正常</sapn>'
+                    }else{
+                        if(d.status==1){
+                            return '<span>确诊</sapn>'
+                        }else{
+                        if(d.status==2){
+                            return '<span>密接</sapn>'
+                        }
+                        return '<span>次密接</sapn>'
+                    }
+                    }
+                }
+            }, {
+                field: 'phoneNumber',
+                title: '电话号码',
+                width: 400
+            }
+        ]
+    ]
+    });
+
+    //第二个表
+    table.render({
+    elem: '#lastTb',
+    url: "http://101.200.132.176:10007/v1/getWifiEventDetail2"+"?"+date+"&"+wifi+"&"+status,
+    page: true,
+    toolbar: '#toolbarDemo',
+    defaultToolbar: ['filter', 'exports', 'print'],
+    cols: [
+        [
+            //{type:'checkbox', fixed: 'left'},
+            {
+                field: 'id',
+                title: 'ID',
+                width: 100,
+                sort: true,
+                fixed: true
+            }, {
+                field: 'status',
+                title: '状态',
+                width: 200,
+                sort: true,
+                fixed: true,
+                templet:function(d){
+                    if(d.status==0){
+                        return '<span>正常</sapn>'
+                    }else{
+                        if(d.status==1){
+                            return '<span>确诊</sapn>'
+                        }else{
+                        if(d.status==2){
+                            return '<span>密接</sapn>'
+                        }
+                        return '<span>次密接</sapn>'
+                    }
+                    }
+                }
+            }, {
+                field: 'phoneNumber',
+                title: '电话号码',
+                width: 400
+            }
+        ]
+    ]
+    });
+});
+    </script>
+</body>
+
+</html>
