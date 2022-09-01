@@ -1,0 +1,4 @@
+# Project exclude paths
+/eurekaserver/target/
+/peoplemanage/target/
+/peopleanalyse/target/

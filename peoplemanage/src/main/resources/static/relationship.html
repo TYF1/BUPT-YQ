@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>预测记录信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+
+<body>
+
+<!--    <form class="layui-form" action="">
+        <div class="layui-btn-group demoTable">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent1" onClick="return false">最近24小时</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent2" onClick="return false">最近7天</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent3" onClick="return false">最近1个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent4" onClick="return false">最近6个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent5" onClick="return false">最近1年</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent6" onClick="return false">全部</button>
+        </div>
+    </form> -->
+    
+    <script type="text/javascript">
+        function analyse(){
+            $.get("http://101.200.132.176:10007/v1/analyse", function (data, status){
+
+            })
+        }
+    </script>
+
+    <div>
+        <button onclick="analyse()" class="layui-btn layui-btn-normal">分析</button>
+    </div>
+    <table id="relationTb" lay-filter="relationTb"></table>
+    <div class="layui-card-header">
+        <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
+       <!-- <button class="layui-btn" onclick="xadmin.open('添加预测数据','./disasterPredictionInfo-add.html',1200,600)"><i class="layui-icon"></i>添加</button> -->
+    </div>
+
+    <script type="text/html" id="barDemo">
+        <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
+        // <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        // <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="pictureTpl">
+        <a href="{{d.picture}}" target="_blank" class="layui-table-link">查看图片</a>
+    </script>
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+var tableIns;
+layui.use(['layer','form','table'], function(){
+  var layer = layui.layer, $ = layui.jquery, form = layui.form, table = layui.table;
+  
+  //第一个实例
+    tableIns = table.render({
+    elem: '#relationTb',
+    url: 'http://101.200.132.176:10007/v1/getWifiEvent',
+    page: true,
+    toolbar: '#toolbarDemo',
+    defaultToolbar: ['filter', 'exports', 'print'],
+    cols: [
+        [
+            //{type:'checkbox', fixed: 'left'},
+            {
+                field: 'date',
+                title: '日期',
+                width: 400,
+                sort: true,
+                fixed: true
+            }, {
+                field: 'wifi',
+                title: 'WiFi名称',
+                width: 350
+            }, {
+                field: 'status',
+                title: '事件类型',
+                width: 250,
+                templet:function(d){
+                    if(d.status==1){
+                        return '<span>密接事件</sapn>'
+                    }else if(d.status == 2){
+                        return '<span>次密接事件</sapn>'
+                    }
+                }
+            }, {
+                title:'操作',
+                align:'center',
+                width:300,
+                templet:function(data){
+                    return '<a href="contact.html?" class="layui-btn layui-btn-normal layui-btn-sm" lay-event="viewContact">查看与其密接人员</a>'
+            }}
+        ]
+    ]
+    });
+
+    table.on('tool(relationTb)',function(obj){
+        var data = obj.data;
+        var layEvent = obj.event;
+        if(layEvent==='viewContact'){
+            console.log(data)
+            const date = "date=" + data["date"];
+            const wifi = "wifi=" + data["wifi"];
+            const status = "status=" + data["status"];
+            console.log(date);
+            console.log(wifi);
+            console.log(status);
+            sessionStorage.setItem("date", date);
+            sessionStorage.setItem("wifi", wifi);
+            sessionStorage.setItem("status", status);
+            //$.post("http://101.200.132.176:10002/v1/contact",{id:data.id,date:data.date,wifi:data.wifi});
+        }
+    })
+});
+    </script>
+</body>
+
+</html>
