@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author 10569
  * @version 1.0
- * @description
+ * @description     提供的服务的实现
  * @Date 2022/8/24 15:18
  */
 @Service("OpinionsService")
@@ -27,18 +27,29 @@ public class OpinionsServiceImpl implements OpinionsService {
     }
 
     @Override
-    public List<Opinions> findByContext(String context) {
-        return opinionsRepository.findByContextLike(context);
+    public Page<Opinions> findByContext(Pageable pageable,String context) {
+        return opinionsRepository.findByContextLike(pageable,context);
     }
 
     @Override
     public Page<Opinions> findAll(Pageable pageable) {
-        return opinionsRepository.findAll(pageable);
+        return opinionsRepository.findAllByOrderByHeatDesc(pageable);
     }
 
     @Override
     public Long count() {
         return opinionsRepository.count();
+    }
+
+
+    @Override
+    public Page<Opinions> findByKeyWord(Pageable pageable,String keyword) {
+        return opinionsRepository.findByKeywordLike(pageable,keyword);
+    }
+
+    @Override
+    public Page<Opinions> findByFeature(Pageable pageable, Integer feature) {
+        return opinionsRepository.findByFeature(pageable,feature);
     }
 }
 

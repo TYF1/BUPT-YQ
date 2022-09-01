@@ -1,0 +1,8 @@
+首先需要正确安装java，jdk版本1.8
+
+需要将eurekaserver-0.0.1-SNAPSHOT.jar和opinionmanage-0.0.1-SNAPSHOT.jar放在需要运行（自定的）路径下
+
+python环境需要安装的第三方库见readme文档，需要安装anaconda，于/root，
+在anaconda中创建名为learning的虚拟环境，在虚拟环境中装所需要的库
+python运行的绝对路径：/root/anaconda3/envs/learning/bin/python
+需要将运行的python项目（spider文件夹）放置于/usr/scripts目录下，才能正常运行。

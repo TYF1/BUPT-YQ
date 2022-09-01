@@ -10,37 +10,58 @@
     <link rel="stylesheet" href="./layui/css/layui.css" media="all">
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/opinion.js"></script>
     <script type="text/javascript" src="./js/xadmin.js"></script>
+
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 
 <body>
 
-<!--    <form class="layui-form" action="">
-        <div class="layui-btn-group demoTable">
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent1" onClick="return false">最近24小时</button>
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent2" onClick="return false">最近7天</button>
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent3" onClick="return false">最近1个月</button>
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent4" onClick="return false">最近6个月</button>
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent5" onClick="return false">最近1年</button>
-            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent6" onClick="return false">全部</button>
+<div class="layui-form-item">
+    <div class="layui-input-inline">
+        <div class="layui-form">
+            <select name="cdSelect" lay-verify="" lay-filter="test" id="conditionSelect">
+                <option value="cxt">按内容查询</option>
+                <option value="kw">按关键词查询</option>
+                <option value="ft">按类型查询</option>
+            </select>
         </div>
-    </form> -->
+    </div>
+    <div class="layui-input-inline">
+        <label for="conditionInput"></label><input class="layui-input" name="conditionInput" id="conditionInput" autocomplete="off">
+    </div>
 
-<table id="opinionTb" lay-filter="opinionTb"></table>
-<div class="layui-card-header">
-    <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
-    <!-- <button class="layui-btn" onclick="xadmin.open('添加预测数据','./disasterPredictionInfo-add.html',1200,600)"><i class="layui-icon"></i>添加</button> -->
+    <button id="searchBtn" class="layui-btn" type="submit">搜索</button>
+
 </div>
 
-<script type="text/html" id="barDemo">
-    <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
-    // <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    // <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
-<script type="text/html" id="pictureTpl">
-    <a href="{{d.picture}}" target="_blank" class="layui-table-link">查看图片</a>
-</script>
+<div class="layui-form-item">
+    <div class="layui-input-inline">
+        <div class="layui-form">
+            <select name="cdSelect" lay-verify="" lay-filter="test" id="spiderSelection">
+                <option value="新冠">新冠</option>
+                <option value="疫情">疫情</option>
+                <option value="核酸">核酸</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-input-inline">
+        <div class="layui-form">
+            <select name="cdSelect" lay-verify="" lay-filter="test" id="spiderCount">
+                <option value="100">100条</option>
+                <option value="500">500条</option>
+                <option value="700">700条</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-mid layui-word-aux">注：爬取时间较长，耐心等待</div>
+    <button id="spiderBtn" class="layui-btn" type="submit">开始爬取</button>
+
+</div>
+
+<table id="opinionTb" lay-filter="opinionTb"></table>
 <script src="./layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
@@ -50,13 +71,14 @@
         //第一个实例
         table.render({
             elem: '#opinionTb',
-            url: 'http://localhost:8080/formGet',
-            parseData:function (res){
-                return{
-                    "code":0,
-                    "msg":"res.message",
-                    "count":res.count,
-                    "data":res.data.content,
+            url: 'http://47.92.23.6:7002/formGet',
+            //url: 'http://localhost:7002/formGet',
+            parseData: function (res) {
+                return {
+                    "code": 0,
+                    "msg": "res.message",
+                    "count": res.count,
+                    "data": res.data.content,
                 }
             },
             page: true,
@@ -68,36 +90,43 @@
                     {
                         field: 'context',
                         title: '内容',
-                        width: 350,
-                        templet:'<div>{{d.context}}</div>',
-                        sort: true,
-                        fixed: true
+                        width: 420,
+                        templet: '<div>{{d.context}}</div>',
                     }, {
                     field: 'feature',
                     title: '态度',
                     width: 180,
                     sort: true,
-                    fixed: true,
                     templet: function (d) {
                         if (d.feature == 1) {
                             return '<span>积极</sapn>'
-                        } else {
+                        } else if(d.feature==0) {
                             return '<span>消极</sapn>'
+                        } else{
+                            return '<span>中性</sapn>'
                         }
                     }
                 }, {
-                    field: 'type',
-                    title: '类型',
-                    templet:'<div>{{d.type}}</div>',
-                    width: 200
+                    field: 'heat',
+                    title: '热度',
+                    sort: true,
+                    templet: '<div>{{d.heat}}</div>',
+                    width: 120
                 }, {
                     field: 'keyword',
                     title: '关键词',
-                    templet:'<div>{{d.keyword}}</div>',
+                    templet: '<div>{{d.keyword}}</div>',
+                    width: 200
+                }, {
+                    field: 'link',
+                    title: '来源',
+                    templet: '<div><a href="{{d.link}}" target="_blank">点击跳转</a></div>',
                     width: 200
                 }
                 ]
-            ]
+            ],
+            id:'reloadTb',
+
         });
 
     });

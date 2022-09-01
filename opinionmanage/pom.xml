@@ -68,11 +68,22 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
             <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython-standalone</artifactId>
+            <version>2.7.1</version>
         </dependency>
 
 
@@ -94,6 +105,20 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.4.RELEASE</version>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                    <mainClass>com.group5.opinionmanage.OpinionmanageApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

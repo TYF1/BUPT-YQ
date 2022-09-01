@@ -15,12 +15,14 @@ spring:
   jackson:
     serialization:
       indent_output: false
-
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:10001/eureka/
+      defaultZone: #http://localhost:10001/eureka/
+        http://47.92.23.6:7001/eureka/
   instance:
     prefer-ip-address: true
+server:
+  port: 7002
