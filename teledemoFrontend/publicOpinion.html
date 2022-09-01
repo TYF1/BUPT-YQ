@@ -28,7 +28,7 @@
     <div style="text-align: center; font-size: 20px;">
         微博爬虫结果情感分析图
     </div>
-    <button type="button" class="layui-btn" onclick="updateHS()">更新热搜数据库</button>
+    <button type="button" class="layui-btn" id="updateButton" onclick="updateHS()">更新热搜数据库</button>
 <!--    <button type="button" class="layui-btn" onclick="updateWB()">更新微博数据库</button>-->
     <div style="text-align: center; font-size: 20px;">
         微博疫情热搜Top10
@@ -52,6 +52,8 @@
     <script type="text/javascript">
         function updateHS(){
             // document.location.href = "http://127.0.0.1:10006/v1/hsUpdate"
+            $('#updateButton').attr("disabled",true).addClass("layui-btn-disabled");
+            document.getElementById("updateButton").innerHTML = "正在更新中...";
             $.ajax({
                 url: 'http://114.115.254.186:10006/v1/hsUpdate',
                 type: 'GET',     // 请求类型，常用的有 GET 和 POST
@@ -62,6 +64,8 @@
                 },
                 error : function() {
                     alert('更新失败 ');
+                    $('#updateButton').attr("disabled", false).removeClass("layui-btn-disabled");
+                    document.getElementById("updateButton").innerHTML = "更新热搜数据库";
                 },
                 success: function(data) { // 接口调用成功回调函数
                     if (data == "failed") {
@@ -69,6 +73,8 @@
                     }else {
                         alert("已更新" + data + "条数据，请刷新查看");
                     }
+                    $('#updateButton').attr("disabled", false).removeClass("layui-btn-disabled");
+                    document.getElementById("updateButton").innerHTML = "更新热搜数据库";
                 }
             });
         }
