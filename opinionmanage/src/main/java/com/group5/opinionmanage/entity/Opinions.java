@@ -27,20 +27,72 @@ public class Opinions {
 
     private String context;
 
-    private String type;
 
     private Integer feature;
 
     private String keyword;
+    private Integer voteupcount;
+    private Integer commentcount;
+    private String questiontext;
 
-    public Opinions(){}
-    public Opinions(Integer oid, String context, String type, int feature, String keyword) {
-        this.oid = oid;
+    private String link;
+    private Integer heat;
+
+    public Integer getHeat() {
+        return heat;
+    }
+
+    public void setHeat(Integer heat) {
+        this.heat = heat;
+    }
+
+
+    public Integer getVoteupcount() {
+        return voteupcount;
+    }
+
+    public void setVoteupcount(Integer voteupcount) {
+        this.voteupcount = voteupcount;
+    }
+
+    public Integer getCommentcount() {
+        return commentcount;
+    }
+
+    public void setCommentcount(Integer commentcount) {
+        this.commentcount = commentcount;
+    }
+
+    public String getQuestiontext() {
+        return questiontext;
+    }
+
+    public void setQuestiontext(String questiontext) {
+        this.questiontext = questiontext;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public Opinions(String context, Integer feature, String keyword, Integer voteupcount, Integer commentcount, String questiontext, String link, Integer heat) {
         this.context = context;
-        this.type = type;
         this.feature = feature;
         this.keyword = keyword;
+        this.voteupcount = voteupcount;
+        this.commentcount = commentcount;
+        this.questiontext = questiontext;
+        this.link = link;
+        this.heat = heat;
     }
+
+    public Opinions() {
+    }
+
 
     public String getContext() {
         return context;
@@ -48,14 +100,6 @@ public class Opinions {
 
     public void setContext(String context) {
         this.context = context;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public Integer getFeature() {

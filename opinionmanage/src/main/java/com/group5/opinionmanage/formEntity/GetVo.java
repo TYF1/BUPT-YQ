@@ -1,4 +1,4 @@
-package com.group5.opinionmanage.formEntity;
+package com.group5.opinionmanage.formentity;
 
 import com.group5.opinionmanage.entity.Opinions;
 import org.springframework.data.domain.Page;
