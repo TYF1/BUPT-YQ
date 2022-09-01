@@ -3,30 +3,33 @@ package teleDemo.mapper;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Repository;
-import teleDemo.entities.UserRegist;
-import teleDemo.entities.userlogin;
+import teleDemo.entities.UserLogin;
 
-@Mapper //标记mapper文件位置，否则在Application.class启动类上配置mapper包扫描
+/**
+ * @Project Name:trackmanage
+ * @File Name: UserRegistMapper
+ * @Description: 用于查询并插入userlogin数据库
+ * @ HISTORY：
+ * Created   2022.8.23  ZNY
+ * Modified  2022.8.23  ZNY
+ */
+@Mapper
 @Repository
 public interface UserRegistMapper {
 
-    @Select(value = "select u.userName,u.password from userlogin u where u.userName=#{username}")
-    @Results
-            ({@Result(property = "userName", column = "userName"),
-                    @Result(property = "password", column = "password")})
-    public userlogin findUserByName(@Param("username") String username);
+    @Select(value = "select * from UserLogin u where u.userName=#{username}")
+    @Results(id="tbInfoRegistMap",value={
+            @Result(column = "userID",property = "userID",jdbcType = JdbcType.INTEGER,id = true),
+            @Result(column = "userName",property = "userName",jdbcType = JdbcType.VARCHAR),
+            @Result(column = "password",property = "password",jdbcType = JdbcType.VARCHAR),
+            @Result(column = "role",property = "role",jdbcType = JdbcType.INTEGER),
+    })
+    UserLogin findUserByName(@Param("username") String username);
 
+    @Insert("insert into UserLogin (userName,password) values(#{username},#{password})")
+    void regist(@Param("username") String username, @Param("password") String password);
 
-    @Insert("insert into userlogin (userName,password) values(#{username},#{password})")
-    //加入该注解可以保存对象后，查看对象插入id
-    //@Options(useGeneratedKeys = true, keyProperty = "userID")
-//    @Results
-//            ({@Result(column = "userID",property = "userID",jdbcType = JdbcType.INTEGER,id = true),
-//                    @Result(column = "userName",property = "userName",jdbcType = JdbcType.VARCHAR),
-//                    @Result(column = "password",property = "password",jdbcType = JdbcType.VARCHAR),
-//                    @Result(column = "role",property = "role",jdbcType = JdbcType.INTEGER),
-//            })
-    public void regist(@Param("username") String username, @Param("password") String password);
-
+    @Delete("delete from userlogin where userName = #{username} and password = #{password}")
+    void delete(@Param("username") String username, @Param("password") String password);
 }
 

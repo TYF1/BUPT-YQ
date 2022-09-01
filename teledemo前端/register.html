@@ -14,9 +14,9 @@
     </div>
     <form>
         <span>&emsp;用户名已存在！！！！</span>
-        <label>用户名:&emsp;&emsp;<input type="text" name="username"></label>
-        <label>密码:&emsp;&emsp;&emsp;<input type="text" name="password"></label>
-        <label>确认密码:&emsp;<input type="text" name="rpassword"></label>
+        <label>用户名:&emsp;&emsp;<input type="text" name="username" onkeydown="if(event.keyCode==13)event.keyCode=9"></label>
+        <label>密码:&emsp;&emsp;&emsp;<input type="password" name="password"  onkeydown="if(event.keyCode==13)event.keyCode=9"></label>
+        <label>确认密码:&emsp;<input type="password" name="rpassword"></label>
         <p>已有账号 <a href="./login.html">去登录</a></p>
         <div>
             &emsp;&emsp;&emsp;&emsp;&emsp;<button type="reset">重置</button>&emsp;&emsp;

@@ -3,71 +3,68 @@ package teleDemo.config;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import teleDemo.entities.userlogin;
+import teleDemo.entities.UserLogin;
 import teleDemo.mapper.UserLoginMapper;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 
 /**
- * 登录拦截器
- *
- * @author pan_junbiao
- **/
+ * @Project Name:trackmanage
+ * @File Name: LoginInterceptor
+ * @Description: 登录拦截器
+ * @ HISTORY：
+ * Created   2022.8.22  WYJ
+ * Modified  2022.8.22  WYJ
+ */
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
+    private static final String FRONT_URL = "http://47.107.228.5";
+    private static final String LOGIN = "login";
+    private static final String HOME_PAGE = "index";
+    private static final String REGISTER = "regist";
     @Resource
     UserLoginMapper userLoginMapper;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //如果需要把Cookie发到服务端，需要指定Access-Control-Allow-Credentials字段为true;
+        //需要把Cookie发到服务端
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        //允许跨域的域名，*号为允许所有,存在被 DDoS攻击的可能。
-        response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:5501");
+        //允许跨域的域名
+        response.setHeader("Access-Control-Allow-Origin", FRONT_URL);
         //表明服务器支持的头信息字段
-        response.setHeader("Access-Control-Allow-Headers","content-type");
+        response.setHeader("Access-Control-Allow-Headers", "content-type");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
 
-/*服务端在response的header中配置"Access-Control-Allow-Origin", "http://xxx:${port}";
-服务端在response的header中配置"Access-Control-Allow-Credentials", "true"
-* */
         String uri = request.getRequestURI();
-
-        //判断当前请求地址是否登录地址或首页地址
-        if (uri.contains("login") || uri.contains("index")) {
-            //登录请求，直接放行
+        boolean notRequireLogin = uri.contains(LOGIN) || uri.contains(HOME_PAGE) || uri.contains(REGISTER);
+        if (notRequireLogin) {
             return true;
-        } else {
-            //判断用户是否登录
-            if (request.getCookies() != null) {
-                //说明已经登录，放行
-                //调用解密方法
-                String token="";
-                for (Cookie cookie:request.getCookies()){
-                    if(cookie.getName().equals("token")){
-                        token=cookie.getValue();
-                    }
-                }
-                if(token.equals("")){
-                    //没有登录，重定向到登录界面
-                    response.sendRedirect(request.getContextPath() + "/login");
-                }
-                userlogin user = CreatJwt.getUser(token);
-                List<userlogin> list = userLoginMapper.getUserByName(user.getUserName());
-                if(list!=null&&list.size()!=0){
-                    return true;
-                }
-                response.sendRedirect(request.getContextPath() + "/login");
-            } else {
-                //没有登录，重定向到登录界面
-                response.sendRedirect(request.getContextPath() + "/login");
-            }
         }
 
-        //默认拦截
+        //判断用户是否登录
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if ("token".equals(cookie.getName())) {
+                    String token = cookie.getValue();
+                    UserLogin user = CreatJwt.getUser(token);
+                    List<UserLogin> list = userLoginMapper.getUserByName(user.getUserName());
+                    if (list != null && list.size() != 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+        // 未登录，拦截
+        String url = "";
+        url = request.getScheme() +"://" + request.getServerName()
+                + ":" +request.getServerPort()
+                + request.getServletPath();
+        response.setHeader("message", "未登录，请登陆后使用功能");
         return false;
     }
 

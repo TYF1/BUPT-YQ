@@ -28,7 +28,7 @@ CREATE TABLE `userlogin` (
   `password` varchar(200) NOT NULL,
   `role` int NOT NULL DEFAULT '2' COMMENT '角色权限',
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `userlogin` (
 
 LOCK TABLES `userlogin` WRITE;
 /*!40000 ALTER TABLE `userlogin` DISABLE KEYS */;
-INSERT INTO `userlogin` VALUES (1,'admin','123',0),(8,'10001','123',2),(9,'10002','123',2),(10,'10003','123',2),(11,'10005','123',2),(12,'10004','123',2),(13,'10006','123',2),(14,'1001','123',1),(15,'1002','123',1),(16,'1003','123',1),(17,'1005','123',1);
+INSERT INTO `userlogin` VALUES (1,'admin','123',0),(8,'10001','123',2),(9,'10002','123',2),(10,'10003','123',2),(11,'10005','123',2),(12,'10004','123',2),(13,'10006','123',2),(14,'1001','123',1),(15,'1002','123',1),(16,'1003','123',1),(17,'1005','123',1),(18,'apollo','123',2);
 /*!40000 ALTER TABLE `userlogin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-23 16:02:10
+-- Dump completed on 2022-08-30  9:30:17

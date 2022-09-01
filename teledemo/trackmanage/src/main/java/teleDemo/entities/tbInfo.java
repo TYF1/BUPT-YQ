@@ -2,8 +2,15 @@ package teleDemo.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-
-public class tbInfo implements Serializable{
+/**
+ * @Project Name:trackmanage
+ * @File Name: TbInfo
+ * @Description: 用于接收tbinfo数据库数据
+ * @ HISTORY：
+ *    Created   2022.8.22  Tom
+ *    Modified  2022.8.22  Tom
+ */
+public class TbInfo implements Serializable{
     private int id;
     private int asu;
     private String cid;
@@ -18,7 +25,7 @@ public class tbInfo implements Serializable{
     private  int wifiCount;
     private String wifiInfo;
 
-    public tbInfo(int id, int asu, String cid, Date dateTime, int dbm, String lac, double lat, double lon, int userId, String netSpeed, int unreadSms, int wifiCount, String wifiInfo){
+    public TbInfo(int id, int asu, String cid, Date dateTime, int dbm, String lac, double lat, double lon, int userId, String netSpeed, int unreadSms, int wifiCount, String wifiInfo){
         this.id=id;
         this.asu=asu;
         this.cid=cid;
@@ -33,7 +40,7 @@ public class tbInfo implements Serializable{
         this.wifiCount=wifiCount;
         this.wifiInfo=wifiInfo;
     }
-    public tbInfo(){
+    public TbInfo(){
 
     }
 
