@@ -1,0 +1,28 @@
+{
+    "user_id_list": "users.txt",
+    "filter": 0,
+    "remove_html_tag": 1,
+    "since_date": "2020-08-26",
+    "start_page": 1,
+    "write_mode": [
+        "mysql"
+    ],
+   "query_list": ["疫情", "新冠", "抗疫"],
+    "original_pic_download": 0,
+    "retweet_pic_download": 0,
+    "original_video_download": 0,
+    "retweet_video_download": 0,
+    "download_comment": 1,
+    "comment_max_download_count": 100,
+    "download_repost": 1,
+    "repost_max_download_count": 100,
+    "result_dir_name": 0,
+    "cookie": "SUB=_2A25ODAwHDeRhGeFM6lUT8SzLyj6IHXVtDpRPrDV6PUJbkdCOLUTCkW1NQPV56ToahpwhivE2Xxq0CAUQnrP07zll; SCF=ArKWLL1Qmt-1LmSaHE3U95pjwnkvhA3GCVroR1hG_wqbFRa1Bi04eZWVoPN5rSAmYtq8sta8aWtSIwDBe88LSwI.; SSOLoginState=1661500504; _T_WM=35520522178; WEIBOCN_FROM=1110006030; MLOGIN=1; M_WEIBOCN_PARAMS=luicode%3D20000174%26uicode%3D20000174",
+    "mysql_config": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "root",
+        "charset": "utf8mb4"
+    }
+}

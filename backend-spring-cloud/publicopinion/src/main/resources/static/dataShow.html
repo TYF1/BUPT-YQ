@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>数据展示</title>
+    </head>
+    <body>
+        <div id="dataShow" style="height: 300px"></div>
+        <script src="js/jquery.min.js"></script>
+        <script src="node_modules/echarts/dist/echarts.js"></script>
+        <script type="text/javascript">
+            $.ajax({
+                url: 'http://101.37.35.119:10003/publicopinion/stats',
+                // url: 'test1.json',
+                method: 'get',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                    var chartDom = document.getElementById('dataShow');
+                    var myChart = echarts.init(chartDom);
+                    var option;
+
+                    option = {
+                        title: {
+                            text: '舆情分析',
+                            // subtext: 'From Group 4',
+                            left: 'center',
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            left: 'left',
+                        },
+                        color: ['#ff7070', '#9fe080', '#ffdc60'],
+                        series: [
+                            {
+                                name: '数据表格',
+                                type: 'pie',
+                                radius: '50%',
+                                data: [
+                                    { value: data.negative, name: '负面' },
+                                    { value: data.positive, name: '正面' },
+                                    { value: data.neutral, name: '中立' },
+                                ],
+                                emphasis: {
+                                    itemStyle: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    },
+                                },
+                            },
+                        ],
+                    };
+
+                    option && myChart.setOption(option);
+                },
+                error: function (err) {},
+            });
+
+            // var chartDom = document.getElementById('dataShow');
+            // var myChart = echarts.init(chartDom);
+            // var option;
+
+            // option = {
+            //     title: {
+            //         text: 'Referer of a Website',
+            //         subtext: 'Fake Data',
+            //         left: 'center',
+            //     },
+            //     tooltip: {
+            //         trigger: 'item',
+            //     },
+            //     legend: {
+            //         orient: 'vertical',
+            //         left: 'left',
+            //     },
+            //     series: [
+            //         {
+            //             name: 'Access From',
+            //             type: 'pie',
+            //             radius: '50%',
+            //             data: [
+            //                 { value: 1048, name: 'Search Engine' },
+            //                 { value: 735, name: 'Direct' },
+            //                 { value: 580, name: 'Email' },
+            //                 { value: 484, name: 'Union Ads' },
+            //                 { value: 300, name: 'Video Ads' },
+            //             ],
+            //             emphasis: {
+            //                 itemStyle: {
+            //                     shadowBlur: 10,
+            //                     shadowOffsetX: 0,
+            //                     shadowColor: 'rgba(0, 0, 0, 0.5)',
+            //                 },
+            //             },
+            //         },
+            //     ],
+            // };
+
+            // option && myChart.setOption(option);
+        </script>
+    </body>
+</html>

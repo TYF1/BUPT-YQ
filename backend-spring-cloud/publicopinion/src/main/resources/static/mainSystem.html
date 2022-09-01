@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./layui/css/layui.css" media="all" />
+        <link rel="stylesheet" href="./css/font.css" />
+        <link rel="stylesheet" href="./css/xadmin.css" />
+        <script type="text/javascript" src="./js/xadmin.js"></script>
+        <title>class1</title>
+    </head>
+
+    <body>
+        <div
+            class="site-text"
+            style="margin: 5%; display: none"
+            id="window"
+            target="test123"
+        >
+            <form
+                class="layui-form"
+                id="book"
+                method="post"
+                lay-filter="example"
+            >
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            autocomplete="off"
+                            placeholder="示例值:人民网"
+                            class="layui-input"
+                        />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">时间</label>
+                    <div class="layui-input-block">
+                        <input
+                            type="text"
+                            id="data"
+                            name="data"
+                            autocomplete="off"
+                            placeholder="示例值:2022-8-30"
+                            class="layui-input"
+                        />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">关键字</label>
+                    <div class="layui-input-block">
+                        <input
+                            type="text"
+                            id="keywords"
+                            name="keywords"
+                            autocomplete="off"
+                            placeholder="示例值:疫情,防疫,封城"
+                            class="layui-input"
+                        />
+                    </div>
+                </div>
+
+                <!--  <div class="layui-form-item">
+                <div class="layui-input-block">
+                  <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                </div>
+              </div> -->
+            </form>
+        </div>
+        <!-- <form class="layui-form" action="">
+        <div class="layui-btn-group demoTable">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent1"
+                onClick="return false">最近24小时</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent2"
+                onClick="return false">最近7天</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent3"
+                onClick="return false">最近1个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent4"
+                onClick="return false">最近6个月</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent5"
+                onClick="return false">最近1年</button>
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="recent6"
+                onClick="return false">全部</button>
+        </div>
+    </form> -->
+
+        <table id="disasterPredictionTb" lay-filter="test"></table>
+
+        <div class="layui-card-header" lay-filter="test">
+            <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
+            <!-- <button class="layui-btn" onclick="xadmin.open('添加预测数据','./disasterPredictionInfo-add.html',1200,600)"><i class="layui-icon"></i>添加</button> -->
+        </div>
+
+        <script type="text/html" id="barDemo">
+            <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
+            // <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a> //
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"
+                >删除</a
+            >
+        </script>
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="case">
+                    按大类获取舆情
+                </button>
+                <button class="layui-btn layui-btn-sm" lay-event="time">
+                    按时间筛选舆情
+                </button>
+                <button class="layui-btn layui-btn-sm" lay-event="keyword">
+                    按关键字筛选舆情
+                </button>
+                <button class="layui-btn layui-btn-sm" lay-event="user">
+                    按用户筛选舆情
+                </button>
+                <button class="layui-btn layui-btn-sm" lay-event="analyze">
+                    分析当前数据舆情
+                </button>
+                <button
+                    class="layui-btn layui-btn-sm"
+                    lay-event=""
+                    id="spiderinit"
+                    onclick="spiderinit()"
+                >启动爬虫</button>
+            </div>
+        </script>
+
+        <script src="./layui/layui.js" charset="utf-8"></script>
+        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+        <script>
+            layui.use('table', function () {
+                var table = layui.table;
+                var key = 'type';
+                var key_value = 0;
+
+                table.render({
+                    elem: '#disasterPredictionTb',
+                    url: 'http://101.37.35.119:10003/publicopinion/type',
+                    // url: 'test.json',
+                    page: true,
+                    toolbar: '#toolbarDemo',
+                    where: {
+                        type: 0,
+                    },
+                    defaultToolbar: ['filter', 'exports', 'print'],
+                    parseData: function (res) {
+                        return {
+                            code: 0,
+                            msg: '',
+                            count: res.totalElements,
+                            data: res.content,
+                        };
+                    },
+                    cols: [
+                        [
+                            // { type: 'checkbox', fixed: 'left' },
+                            {
+                                field: 'text',
+                                title: '微博内容',
+                                width: 250,
+                                // fixed: true
+                            },
+                            {
+                                field: 'picUrl',
+                                title: '图片链接',
+                                width: 250,
+                                // sort: true,
+                                // fixed: true,
+                                templet: function (d) {
+                                    if (!d.picUrl) {
+                                        return '无数据';
+                                    } else {
+                                        return d.picUrl;
+                                    }
+                                },
+                            },
+                            {
+                                field: 'vidUrl',
+                                title: '视频链接',
+                                width: 250,
+                                templet: function (d) {
+                                    if (!d.vidUrl) {
+                                        return '无数据';
+                                    } else {
+                                        return d.vidUrl;
+                                    }
+                                },
+                            },
+                            {
+                                field: 'topic',
+                                title: '话题',
+                                width: 250,
+                            },
+                            {
+                                field: 'likes',
+                                title: '赞数',
+                                sort: true,
+                                width: 100,
+                            },
+                            {
+                                field: 'comments',
+                                title: '评论数',
+                                sort: true,
+                                width: 100,
+                            },
+                            {
+                                field: 'reposts',
+                                title: '转发数',
+                                sort: true,
+                                width: 100,
+                            },
+                            {
+                                field: 'username',
+                                title: '用户昵称',
+                                width: 200,
+                            },
+                        ],
+                    ],
+                });
+                table.on('row(test)', function (obj) {
+                    var text = obj.data.text;
+                    if (obj.data.picUrl) {
+                        var picUrl = obj.data.picUrl;
+                    } else {
+                        var picUrl = '无';
+                    }
+                    if (obj.data.vidUrl) {
+                        var vidUrl = obj.data.vidUrl;
+                    } else {
+                        var vidUrl = '无';
+                    }
+                    var topic = obj.data.topic;
+                    var likes = obj.data.likes;
+                    var comments = obj.data.comments;
+                    var reposts = obj.data.reposts;
+                    var username = obj.data.username;
+                    layer.open({
+                        title: '信息查看',
+                        // content: "<ul><li>" + id + "</li><li>" + status + "</li><li>" + phoneNumber + "</li></ul>"
+                        content: `<ul><li>微博内容：${text}</li><li>图片链接：${picUrl}</li><li>视频链接：${vidUrl}</li><li>话题：${topic}</li><li>赞数：${likes}</li><li>评论数：${comments}</li><li>转发数：${reposts}</li><li>用户昵称：${username}</li></ul>`,
+                    });
+                });
+                table.on('toolbar(test)', function (obj) {
+                    var checkStatus = table.checkStatus(obj.config.id);
+                    switch (obj.event) {
+                        case 'case':
+                            layer.prompt(
+                                {
+                                    formType: 0,
+                                    value: '',
+                                    title: '请输入大类名称',
+                                    // area: ['800px', '350px'] //自定义文本域宽高
+                                },
+                                function (value, index, elem) {
+                                    // console.log(value, index, elem)
+                                    switch (value) {
+                                        case '全部':
+                                            value = 0;
+                                            table.reload(
+                                                'disasterPredictionTb',
+                                                {
+                                                    url: 'http://101.37.35.119:10003/publicopinion/type',
+                                                    where: {
+                                                        //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                                        type: Number(value),
+                                                    },
+                                                }
+                                            );
+                                            key = 'type';
+                                            key_value = Number(value);
+                                            break;
+                                        case '谣言辟谣':
+                                            value = 1;
+                                            table.reload(
+                                                'disasterPredictionTb',
+                                                {
+                                                    url: 'http://101.37.35.119:10003/publicopinion/type',
+                                                    where: {
+                                                        //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                                        type: Number(value),
+                                                    },
+                                                }
+                                            );
+                                            key = 'type';
+                                            key_value = Number(value);
+                                            break;
+                                        case '停课封城相关':
+                                            value = 2;
+                                            table.reload(
+                                                'disasterPredictionTb',
+                                                {
+                                                    url: 'http://101.37.35.119:10003/publicopinion/type',
+                                                    where: {
+                                                        //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                                        type: Number(value),
+                                                    },
+                                                }
+                                            );
+                                            key = 'type';
+                                            key_value = Number(value);
+                                            break;
+                                        case '复工复产相关':
+                                            value = 3;
+                                            table.reload(
+                                                'disasterPredictionTb',
+                                                {
+                                                    url: 'http://101.37.35.119:10003/publicopinion/type',
+                                                    where: {
+                                                        //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                                        type: Number(value),
+                                                    },
+                                                }
+                                            );
+                                            key = 'type';
+                                            key_value = Number(value);
+                                            break;
+                                    }
+                                    console.log(key, key_value);
+                                    layer.close(index);
+                                }
+                            );
+                            break;
+                        case 'time':
+                            layer.prompt(
+                                {
+                                    formType: 0,
+                                    value: '',
+                                    title: '请输入时间',
+                                    // area: ['800px', '350px'] //自定义文本域宽高
+                                },
+                                function (value, index, elem) {
+                                    // console.log(value, index, elem)
+                                    table.reload('disasterPredictionTb', {
+                                        url: 'http://101.37.35.119:10003/publicopinion/time',
+                                        where: {
+                                            //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                            since_day: Number(value),
+                                        },
+                                    });
+                                    key = 'since_day';
+                                    key_value = Number(value);
+                                    console.log(key, key_value);
+                                    layer.close(index);
+                                }
+                            );
+                            break;
+                        case 'keyword':
+                            layer.prompt(
+                                {
+                                    formType: 0,
+                                    value: '',
+                                    title: '请输入关键字',
+                                    // area: ['800px', '350px'] //自定义文本域宽高
+                                },
+                                function (value, index, elem) {
+                                    // console.log(value, index, elem)
+                                    table.reload('disasterPredictionTb', {
+                                        url: 'http://101.37.35.119:10003/publicopinion/keyword',
+                                        where: {
+                                            //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                            keyword: value,
+                                        },
+                                    });
+                                    key = 'keyword';
+                                    key_value = value;
+                                    console.log(key, key_value);
+                                    layer.close(index);
+                                }
+                            );
+                            break;
+                        case 'user':
+                            layer.prompt(
+                                {
+                                    formType: 0,
+                                    value: '',
+                                    title: '请输入用户名',
+                                    // area: ['800px', '350px'] //自定义文本域宽高
+                                },
+                                function (value, index, elem) {
+                                    // console.log(value, index, elem)
+                                    table.reload('disasterPredictionTb', {
+                                        url: 'http://101.37.35.119:10003/publicopinion/user',
+                                        where: {
+                                            //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                            user: value,
+                                        },
+                                    });
+                                    key = 'user';
+                                    key_value = value;
+                                    console.log(key, key_value);
+                                    layer.close(index);
+                                }
+                            );
+                            break;
+                        case 'analyze':
+                            layer.open({
+                                type: 2,
+                                title: '舆情数据分析',
+                                area: ['600px', '400px'],
+                                content: 'dataShow.html',
+                            });
+                    }
+                });
+                table.on('sort(test)', function (obj) {
+                    //注：sort是写死的，监听的是表头的排序按钮的点击事件，test是table原始容器的属性 lay-filter="对应的值"
+                    console.log(obj.field); //当前排序的字段名
+                    console.log(obj.type); //当前排序类型：desc（降序）、asc（升序）、null（空对象，默认排序）
+                    console.log(this); //当前排序的 th 对象
+                    //尽管我们的 table 自带排序功能，但并没有请求服务端。
+                    //有些时候，你可能需要根据当前排序的字段，重新向服务端发送请求，从而实现服务端排序，如：
+                    switch (key) {
+                        case 'type':
+                            table.reload('disasterPredictionTb', {
+                                //testTable是表格容器id
+                                url: 'http://101.37.35.119:10003/publicopinion/type',
+                                initSort: obj, //记录初始排序，如果不设的话，将无法标记表头的排序状态。 layui 2.1.1 新增参数
+                                where: {
+                                    //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                    type: key_value,
+                                    property: obj.field, //排序字段 对应的表头参数的filed值，
+                                },
+                            });
+                            console.log(key, key_value);
+                            break;
+                        case 'since_day':
+                            table.reload('disasterPredictionTb', {
+                                //testTable是表格容器id
+                                url: 'http://101.37.35.119:10003/publicopinion/time',
+                                initSort: obj, //记录初始排序，如果不设的话，将无法标记表头的排序状态。 layui 2.1.1 新增参数
+                                where: {
+                                    //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                    since_day: key_value,
+                                    property: obj.field, //排序字段 对应的表头参数的filed值，
+                                },
+                            });
+                            console.log(key, key_value);
+                            break;
+                        case 'keyword':
+                            table.reload('disasterPredictionTb', {
+                                //testTable是表格容器id
+                                url: 'http://101.37.35.119:10003/publicopinion/keyword',
+                                initSort: obj, //记录初始排序，如果不设的话，将无法标记表头的排序状态。 layui 2.1.1 新增参数
+                                where: {
+                                    //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                    keyword: key_value,
+                                    property: obj.field, //排序字段 对应的表头参数的filed值，
+                                },
+                            });
+                            console.log(key, key_value);
+                            break;
+                        case 'user':
+                            table.reload('disasterPredictionTb', {
+                                //testTable是表格容器id
+                                url: 'http://101.37.35.119:10003/publicopinion/user',
+                                initSort: obj, //记录初始排序，如果不设的话，将无法标记表头的排序状态。 layui 2.1.1 新增参数
+                                where: {
+                                    //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
+                                    user: key_value,
+                                    property: obj.field, //排序字段 对应的表头参数的filed值，
+                                },
+                            });
+                            console.log(key, key_value);
+                            break;
+                    }
+                });
+
+            spiderinit = function (){
+                $ = jQuery;
+                layer.open({
+                    type: 1,
+                    title: '请输入参数',
+                    area: ['50%', '50%'],
+                    btn: ['确定', '取消'],
+                    content: $('#window'),
+                    yes: function (index, layero) {
+                        username1 = document.getElementById('username').value;
+                        data1 = document.getElementById('data').value;
+                        keywords1 = document.getElementById('keywords').value;
+                        console.log(username1, data1, keywords1);
+                        // $.ajax({
+                        //     url: 'http://localhost:10003/publicopinion/weibo_crawler',
+                        //     // url: 'test.json',
+                        //     method: 'post',
+                        //     data: {
+                        //         username: username1,
+                        //         data: data1,
+                        //         keywords: keywords1,
+                        //     },
+                        // });
+                        document.getElementById('spiderinit').disabled =true;
+
+                        var websocket = null;
+                        //判断当前浏览器是否支持WebSocket，是则创建WebSocket
+                        if ('WebSocket' in window) {
+                            console.log("浏览器支持Websocket");
+                            websocket = new WebSocket("ws://101.37.35.119:10003/websocket/crawler");
+                        } else {
+                            alert('当前浏览器 Not support websocket');
+                        }
+
+                        websocket.onopen = function () {
+                            console.log(websocket);
+                            websocket.send(username1 + " " + data1 + " " + keywords1);
+                            layer.open({
+                                title: '采集数据',
+                                content: '请稍候'
+                            });
+                        }
+
+                        websocket.onmessage = function (event) {
+                            console.log(event);
+                            var data = $.parseJSON(event.data)
+                            var msg
+                            if (data.status1 == 0 && data.status2 ==0 )
+                                msg = '采集成功，采集到数据共' + data.number + '条'
+                            else
+                                msg = '采集失败'
+                            layer.open({
+                                title: '采集数据',
+                                content: msg
+                            });
+                            document.getElementById('spiderinit').disabled =false;
+                            table.reload("disasterPredictionTb", {
+                                url: 'http://101.37.35.119:10003/publicopinion/type'
+                            });
+                            websocket.close();
+                        }
+
+                        websocket.onerror = function () {
+                            console.log("WebSocket连接发生错误");
+                            alert('WebSocket连接发生错误');
+                        };
+
+                        websocket.onclose = function (e) {
+                            console.log(e.code)
+                            console.log(e.reason)
+                            console.log(e.wasClean)
+                        };
+                        layer.close(index);
+                    },
+                });
+            }
+            });
+        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="node_modules/echarts/dist/echarts.js"></script>
+        <script type="text/javascript">
+            // $.ajax({
+            //     url: '/getjobsalarybytype',
+            //     // url: 'test1.json',
+            //     method: 'get',
+            //     data: {},
+            //     dataType: 'json',
+            //     success: function (data) {
+            //         var chartDom = document.getElementById('dataShow');
+            //         var myChart = echarts.init(chartDom);
+            //         var option;
+
+            //         option = {
+            //             title: {
+            //                 text: '舆情分析',
+            //                 // subtext: 'From Group 4',
+            //                 left: 'center',
+            //             },
+            //             tooltip: {
+            //                 trigger: 'item',
+            //             },
+            //             legend: {
+            //                 orient: 'vertical',
+            //                 left: 'left',
+            //             },
+            //             color: ['#ff7070', '#9fe080', '#ffdc60'],
+            //             series: [
+            //                 {
+            //                     name: '数据表格',
+            //                     type: 'pie',
+            //                     radius: '50%',
+            //                     data: [
+            //                         { value: data.negative, name: '负面' },
+            //                         { value: data.positive, name: '正面' },
+            //                         { value: data.neutral, name: '中立' },
+            //                     ],
+            //                     emphasis: {
+            //                         itemStyle: {
+            //                             shadowBlur: 10,
+            //                             shadowOffsetX: 0,
+            //                             shadowColor: 'rgba(0, 0, 0, 0.5)',
+            //                         },
+            //                     },
+            //                 },
+            //             ],
+            //         };
+
+            //         option && myChart.setOption(option);
+            //     },
+            //     error: function (err) {},
+            // });
+
+            // var chartDom = document.getElementById('dataShow');
+            // var myChart = echarts.init(chartDom);
+            // var option;
+
+            // option = {
+            //     title: {
+            //         text: 'Referer of a Website',
+            //         subtext: 'Fake Data',
+            //         left: 'center',
+            //     },
+            //     tooltip: {
+            //         trigger: 'item',
+            //     },
+            //     legend: {
+            //         orient: 'vertical',
+            //         left: 'left',
+            //     },
+            //     series: [
+            //         {
+            //             name: 'Access From',
+            //             type: 'pie',
+            //             radius: '50%',
+            //             data: [
+            //                 { value: 1048, name: 'Search Engine' },
+            //                 { value: 735, name: 'Direct' },
+            //                 { value: 580, name: 'Email' },
+            //                 { value: 484, name: 'Union Ads' },
+            //                 { value: 300, name: 'Video Ads' },
+            //             ],
+            //             emphasis: {
+            //                 itemStyle: {
+            //                     shadowBlur: 10,
+            //                     shadowOffsetX: 0,
+            //                     shadowColor: 'rgba(0, 0, 0, 0.5)',
+            //                 },
+            //             },
+            //         },
+            //     ],
+            // };
+
+            // option && myChart.setOption(option);
+        </script>
+    </body>
+</html>
