@@ -1,27 +1,18 @@
-
-/**
- * @Projectname: 项目前后端架构(1)
- * @Filename: conversion
- * @Author: Jia Yiming
- * @Data:2022/8/24 11:38
- */
 package teleDemo.util;
 
-import javafx.util.Pair;
+import teleDemo.entities.Pair;
 import teleDemo.entities.poly_list;
 import teleDemo.entities.poly_post;
 import teleDemo.entities.poly_string;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class conversion {
 
-    public static String poly_to_string(List<Pair<Float, Float>> poly) {
+    public static String poly_to_string(List<Pair<Double, Double>> poly) {
         StringBuilder sb = new StringBuilder();
-        for (Pair<Float, Float> item :
+        for (Pair<Double, Double> item :
                 poly) {
             sb.append(item.getKey());
             sb.append("_");
@@ -31,25 +22,25 @@ public class conversion {
         return sb.toString();
     }
 
-    public static List<Pair<Float, Float>> string_to_poly(String res){
+    public static List<Pair<Double, Double>> string_to_poly(String res){
         StringTokenizer st = new StringTokenizer(res, "_");
-        List<Pair<Float, Float>> poly = new LinkedList<>();
+        List<Pair<Double, Double>> poly = new LinkedList<>();
         while(st.hasMoreTokens()){
-            Float lat = Float.valueOf(st.nextToken());
-            Float lon = Float.valueOf(st.nextToken());
+            Double lat = Double.valueOf(st.nextToken());
+            Double lon = Double.valueOf(st.nextToken());
             poly.add(new Pair<>(lat,lon));
         }
         return poly;
     }
 
-    public static List<Pair<Float, Float>> post_to_list(List<List<Float>> post){
+    public static List<Pair<Double,Double>> post_to_list(List<List<Double>> post){
         int temp=0;
-        List<Pair<Float, Float>> poly = new LinkedList<>();
-        for(List<Float> item:post){
+        List<Pair<Double,Double>> poly = new LinkedList<>();
+        for(List<Double>item:post){
             for(int i=0;i<item.size()/2;i++)
             {
                 temp=i+1;
-                Pair<Float,Float> pair=new Pair<>(item.get(i),item.get(temp));
+                Pair<Double,Double>pair=new Pair<>(item.get(i),item.get(temp));
                 poly.add(pair);
             }
         }
@@ -67,8 +58,10 @@ public class conversion {
     public static poly_list pp_to_pl(poly_post pp){
         return new poly_list(pp.getId(),pp.getStatus(),post_to_list(pp.getList_data()));
     }
-
-    public static void main(String[] args) {
-        System.out.println(string_to_poly("122.3_145.3_122.5_145.5"));
+    public static Pair<Integer,Integer> string_to_pair(String res){
+        StringTokenizer st = new StringTokenizer(res, "_");
+        int lat = Integer.parseInt(st.nextToken());
+        int lon = Integer.parseInt(st.nextToken());
+        return new Pair<>(lat,lon);
     }
 }

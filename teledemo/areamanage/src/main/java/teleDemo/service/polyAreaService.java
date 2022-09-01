@@ -1,28 +1,20 @@
 package teleDemo.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import teleDemo.entities.Location;
-import teleDemo.entities.poly_list;
-import teleDemo.entities.poly_string;
-import teleDemo.entities.riskyPersonArea;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+import teleDemo.entities.*;
 import teleDemo.mapper.polyAreaMapper;
 import teleDemo.mapper.riskyAreaMapper;
 import teleDemo.util.conversion;
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
+import java.util.concurrent.ConcurrentHashMap;
 import static teleDemo.util.area_policy.generate_location;
-import static teleDemo.util.area_policy.judge_level;
-
-/**
- * @Projectname: 项目前后端架构(1)
- * @Filename: polyAreaService
- * @Author: Jia Yiming
- * @Data:2022/8/24 14:09
- */
+import static teleDemo.util.conversion.string_to_pair;
 
 @Service
 public class polyAreaService {
@@ -38,40 +30,72 @@ public class polyAreaService {
     @Autowired
     riskyAreaService riskyAreaService;
 
-    public List<poly_list> getpolyArea(){
-        List<poly_list> poly_lists = new ArrayList<>();
-        tableService.test_table();
-        List<poly_string> polyarea = polyAreaMapper.getAllArea();
-        if(polyarea.size() == 0){
-            List<riskyPersonArea> area=riskyAreaService.getRiskyArea();
-            HashMap<Location,Integer> map = new HashMap<>();
-            int poly_id=1;
-            for(riskyPersonArea a : area){
-                Location location = new Location();
-                int x = (int)a.getLat();
-                int y = (int)a.getLon();
-                String s=judge_level(a.getInfected_count(),a.getClosed_count());
-                location.setLon(y).setLat(x).setStatus(s);
-                map.put(location,0);
-            }
+    public List<riskyPersonArea> riskyarea_fromdatabase(){
+        List<riskyPersonArea> area=riskyAreaMapper.riskyarea_from_database();
+        return area;
+    }
+    public List<poly_list> Calculate_polyarea(List<riskyPersonArea> area){
+        List<poly_list> poly_list_data = new ArrayList<>();
+        for(riskyPersonArea a : area){
+            Location location = new Location();
+            BigDecimal bd_lat = new BigDecimal(String.valueOf(a.getLat()));
+            BigDecimal bd_lon = new BigDecimal(String.valueOf(a.getLon()));
+            BigDecimal bd_cluster = new BigDecimal(String.valueOf(riskyAreaService.getCluster_num()));
+            int x = bd_lat.multiply(bd_cluster).intValue();
+            int y = bd_lon.multiply(bd_cluster).intValue();
+            location.setLon(y).setLat(x);
+            poly_list poly_list=new poly_list(a.getPoly_id(),a.getStatus(),generate_location(location,a.getStatus(),riskyAreaService.getCluster_num()));
+            poly_list_data.add(poly_list);
+        }
+        return poly_list_data;
+    }
 
-            for(Location key:map.keySet())
-            {
-                poly_list poly_list=new poly_list().setList_data(generate_location(key));
-                poly_list.setId(poly_id);
-                poly_list.setStatus(key.getStatus());
-                tableService.insert_info_table(poly_list);
-                poly_lists.add(poly_list);
-                poly_id++;
+    public List<poly_list> polyarea_to_database(List<poly_list> polylist_data ){
+        polyAreaMapper.create_polyarea_table();
+        ConcurrentHashMap<String,String> polylist_map=new ConcurrentHashMap<>();
+        List<poly_string> polyarea = polyAreaMapper.getAllPolyArea();
+        List<poly_list> polyarea_db=new ArrayList<>();
+        List<riskyPersonArea> area=riskyAreaMapper.riskyarea_from_database();
+        if(polyarea.size() == 0){
+            for(poly_list poly: polylist_data){
+                tableService.insert_info_table(poly);
+                polyarea_db.add(poly);
             }
         }
         else{
-            for(poly_string a: polyarea){
-                poly_list pl = conversion.ps_to_pl(a);
-                poly_lists.add(pl);
+            for(riskyPersonArea a:area){
+                polylist_map.put(a.getPoly_id(),a.getStatus());
+            }
+            for(poly_string ar: polyarea){
+                if(polylist_map.containsKey(ar.getId()))
+                {
+                    if(!polylist_map.get(ar.getId()).equals(ar.getStatus())){
+                        poly_string b=new poly_string(ar.getId(),polylist_map.get(ar.getId()),ar.getStr_data());
+                        poly_list pl = conversion.ps_to_pl(b);
+                        tableService.update_info_table(pl);
+                        polyarea_db.add(pl);
+                    }
+                    polylist_map.remove(ar.getId());
+                    polyarea_db.add(conversion.ps_to_pl(ar));
+                }
+                else{
+                    tableService.delete_info_table(ar);
+                }
+            }
+            for(String key:polylist_map.keySet()){
+                Pair<Integer,Integer> pair=string_to_pair(key);
+                Location location=new Location().setLon(pair.getValue()).setLat(pair.getKey());//经纬度赋值相反
+                poly_list poly_list=new poly_list(key,polylist_map.get(key),generate_location(location,polylist_map.get(key), riskyAreaService.getCluster_num()));
+                tableService.insert_info_table(poly_list);
+                polyarea_db.add(poly_list);
             }
         }
-        return poly_lists;
+        return polyarea_db;
     }
 
+    public List<poly_list> polyarea_operation(){
+        List<riskyPersonArea> riskyPersonAreas=riskyarea_fromdatabase();
+        List<poly_list> polyarea=Calculate_polyarea(riskyPersonAreas);
+        return polyarea_to_database(polyarea);
+    }
 }

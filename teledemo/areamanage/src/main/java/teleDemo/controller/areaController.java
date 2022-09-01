@@ -16,15 +16,17 @@ import static teleDemo.util.conversion.pp_to_pl;
 public class areaController {
     @Resource
     riskyAreaService riskyAreaService;
+
     @Resource
     polyAreaService polyAreaService;
+
     @Resource
     tableService tableService;
 
     @ResponseBody
     @GetMapping("/v1/area")
     public GetVo getRiskyArea(){
-        List<riskyPersonArea> areas= riskyAreaService.getRiskyArea();
+        List<riskyPersonArea> areas= riskyAreaService.riskyarea_operation();
         GetVo<riskyPersonArea> getVo=new GetVo<>(0,"获取数据成功！",1,areas);
         return getVo;
     }
@@ -32,7 +34,7 @@ public class areaController {
     @ResponseBody
     @GetMapping("/v1/poly")
     public GetVo getRiskyPoly(){
-        List<poly_list> polyarea =polyAreaService.getpolyArea();
+        List<poly_list> polyarea =polyAreaService.polyarea_operation();
         GetVo<poly_list> getVo = new GetVo<>(0,"获取数据成功！",1,polyarea);
         return getVo;
     }
