@@ -3,12 +3,19 @@ package teleDemo.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
-import teleDemo.entities.tbInfo;
+import teleDemo.entities.TbInfo;
 
 import java.util.List;
-
+/**
+ * @Project Name:trackmanage
+ * @File Name: ComInfoMapper
+ * @Description: 用于查询tbinfo数据库
+ * @ HISTORY：
+ *    Created   2022.8.22  Tom
+ *    Modified  2022.8.23  ZH
+ */
 @Mapper
-public interface comInfoMapper {
+public interface ComInfoMapper {
     @Select("SELECT * FROM tb_info order by id desc limit 100;")
     @Results(id="tbInfoMap",value={
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,id = true),
@@ -25,13 +32,13 @@ public interface comInfoMapper {
             @Result(column = "wifi_count",property = "wifiCount",jdbcType = JdbcType.INTEGER),
             @Result(column = "wifi_info",property = "wifiInfo",jdbcType = JdbcType.LONGVARCHAR),
     })
-    List<tbInfo> getAlltbINfo();
+    List<TbInfo> getAlltbINfo();
 
     @Select("select * from tb_info order by date_time desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "tbInfoMap")
-    List<tbInfo> gettbINfoByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
+    List<TbInfo> gettbINfoByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from tb_info where user_id = #{user_id} order by date_time desc;")
     @ResultMap(value = "tbInfoMap")
-    List<tbInfo> gettbInfoById(@Param("user_id") int user_id);
+    List<TbInfo> gettbInfoById(@Param("user_id") int user_id);
 }

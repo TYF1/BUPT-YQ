@@ -1,7 +1,14 @@
 package teleDemo.entities;
 
 import java.util.List;
-
+/**
+ * @Project Name:trackmanage
+ * @File Name: GetVo
+ * @Description: 用于返回Get请求消息
+ * @ HISTORY：
+ *    Created   2022.8.22  Tom
+ *    Modified  2022.8.22  Tom
+ */
 public class GetVo<T>{
     private int code;
     private String msg;
