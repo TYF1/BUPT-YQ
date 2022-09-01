@@ -16,7 +16,8 @@ import java.util.List;
  */
 @Mapper
 public interface ComInfoMapper {
-    @Select("SELECT * FROM tb_info order by id desc limit 100;")
+
+    @Select("select * from tb_info where user_id = #{user_id} order by date_time desc;")
     @Results(id="tbInfoMap",value={
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,id = true),
             @Result(column = "asu",property = "asu",jdbcType = JdbcType.INTEGER),
@@ -32,13 +33,5 @@ public interface ComInfoMapper {
             @Result(column = "wifi_count",property = "wifiCount",jdbcType = JdbcType.INTEGER),
             @Result(column = "wifi_info",property = "wifiInfo",jdbcType = JdbcType.LONGVARCHAR),
     })
-    List<TbInfo> getAlltbINfo();
-
-    @Select("select * from tb_info order by date_time desc limit #{pageNum}, #{limit};")
-    @ResultMap(value = "tbInfoMap")
-    List<TbInfo> gettbINfoByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
-
-    @Select("select * from tb_info where user_id = #{user_id} order by date_time desc;")
-    @ResultMap(value = "tbInfoMap")
     List<TbInfo> gettbInfoById(@Param("user_id") int user_id);
 }

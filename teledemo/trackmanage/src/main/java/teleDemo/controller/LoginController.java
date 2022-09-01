@@ -9,7 +9,9 @@ import teleDemo.mapper.UserLoginMapper;
 import teleDemo.mapper.UserRegistMapper;
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,12 +26,6 @@ import java.util.List;
 public class LoginController {
     @Resource
     ComInfoMapper comInfoMapper;
-
-    @GetMapping("/advice")
-    public String test() {
-        int i = 1 / 0;
-        return "test success";
-    }
 
     @Resource
     UserLoginMapper userLoginMapper;
@@ -69,5 +65,17 @@ public class LoginController {
             result.setResult(0);
         }
         return result;
+    }
+
+    @GetMapping("username")
+    public GetVo<String> getUsername(@CookieValue(value = "token",defaultValue = "")String token){
+        if("".equals(token)){
+            return new GetVo<>(-1, "获取数据失败！", 0, null);
+        }else {
+            UserLogin user = CreatJwt.getUser(token);
+            List<String> list = new ArrayList<>();
+            list.add(user.getUserName());
+            return new GetVo<String>(0, "获取数据成功！", 0, list);
+        }
     }
 }

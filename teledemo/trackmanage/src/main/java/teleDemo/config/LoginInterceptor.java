@@ -27,6 +27,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     private static final String LOGIN = "login";
     private static final String HOME_PAGE = "index";
     private static final String REGISTER = "regist";
+    private static final String USERNAME = "username";
     @Resource
     UserLoginMapper userLoginMapper;
 
@@ -41,7 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
         String uri = request.getRequestURI();
-        boolean notRequireLogin = uri.contains(LOGIN) || uri.contains(HOME_PAGE) || uri.contains(REGISTER);
+        boolean notRequireLogin = uri.contains(LOGIN) || uri.contains(HOME_PAGE) || uri.contains(REGISTER)||uri.contains(USERNAME);
         if (notRequireLogin) {
             return true;
         }
@@ -64,7 +65,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         url = request.getScheme() +"://" + request.getServerName()
                 + ":" +request.getServerPort()
                 + request.getServletPath();
-        response.setHeader("message", "未登录，请登陆后使用功能");
+        response.setHeader("message", "Not logged in, please log in and use the function");
         return false;
     }
 
